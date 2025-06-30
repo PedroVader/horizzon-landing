@@ -90,10 +90,12 @@ const Hero = () => {
           </div>
 
           {/* Carrusel de marcas */}
-          <div className={`transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}>
-          </div>
+<div className={`transition-all duration-1000 delay-700 ${
+  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+}`}>
+  <BrandsCarousel />
+</div>
+
         </div>
       </div>
     </section>
