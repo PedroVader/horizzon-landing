@@ -39,7 +39,6 @@ const Header = () => {
             alt="Horizzon Media Logo" 
             className="h-16 w-auto md:h-20 lg:h-24 xl:h-28 object-contain"
           />
-          <Sparkles className="absolute -top-2 -right-8 w-5 h-5 text-[#EBF0CB] opacity-70" />
         </a>
 
         </div>
