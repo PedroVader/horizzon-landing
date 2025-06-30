@@ -33,15 +33,16 @@ const Header = () => {
         }`}>
           <div className="flex-shrink-0 relative group">
         <div className="flex-shrink-0 relative">
-        <div className="relative flex items-center">
+        <a href="#top" className="relative flex items-center">
           <img 
             src="/images/PNG/Horizzon_logo-azul.png"
             alt="Horizzon Media Logo" 
             className="h-16 w-auto md:h-20 lg:h-24 xl:h-28 object-contain"
           />
           <Sparkles className="absolute -top-2 -right-8 w-5 h-5 text-[#EBF0CB] opacity-70" />
+        </a>
+
         </div>
-      </div>
 
       </div>
 

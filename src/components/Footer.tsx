@@ -33,7 +33,7 @@ const Footer = () => {
                   Teléfono
                 </div>
                 <div className="text-lg font-mont font-medium">
-                  +52 (55) 1234-5678
+                  +34 654 321 987
                 </div>
               </div>
               
@@ -42,7 +42,7 @@ const Footer = () => {
                   Ubicación
                 </div>
                 <div className="text-lg font-mont font-medium">
-                  Ciudad de México, México
+                  españa
                 </div>
               </div>
             </div>

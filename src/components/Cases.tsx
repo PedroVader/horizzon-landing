@@ -43,6 +43,7 @@ const Cases = () => {
       bgGradient: 'from-[#EBF0CB]/20 to-[#6D7FBE]/10',
       accentColor: 'text-[#6D7FBE]',
       tags: ['Branding', 'Digital', 'Preventa'],
+      image: '/images/PNG/torres-parque.jpg'
     },
     {
       title: 'Inmobiliaria Premier',
@@ -55,6 +56,7 @@ const Cases = () => {
       bgGradient: 'from-[#6D7FBE]/10 to-[#EBF0CB]/20',
       accentColor: 'text-[#222952]',
       tags: ['Rebranding', 'Premium', 'ROI'],
+      image: '/images/PNG/inmobiliria.jpg'
     },
     {
       title: 'Grupo Constructora',
@@ -67,6 +69,7 @@ const Cases = () => {
       bgGradient: 'from-[#EBF0CB]/20 to-[#6D7FBE]/10',
       accentColor: 'text-[#6D7FBE]',
       tags: ['CRM', 'Automatización', 'B2B'],
+      image: '/images/PNG/constructora.jpg'
     },
   ];
 
@@ -119,8 +122,14 @@ const Cases = () => {
                 <div className={`relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 transition-all duration-500 ${
                   hovered ? 'shadow-xl scale-[1.02] border-[#6D7FBE]/30' : ''
                 }`}>
-                  <div className="relative h-56">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${c.gradient} opacity-90`}></div>
+                <div className="relative h-56 overflow-hidden rounded-t-3xl">
+                    {/* Imagen de fondo con blur y overlay */}
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className="absolute inset-0 w-full h-full object-cover scale-105 filter blur-[1px] brightness-[0.6]"
+                    />
+
 
                     <div className="absolute top-5 left-5">
                       <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">

@@ -125,88 +125,88 @@ const Testimonials = () => {
               TESTIMONIOS
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-mont font-black leading-tight mb-8">
-            <span className="text-[#222952]">Clientes que</span>
-            <br />
-            <span className="bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent relative">
-              confían
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#EBF0CB] to-[#6D7FBE] rounded-full animate-pulse"></div>
+          <h2 className="text-4xl md:text-6xl font-black text-[#222952] leading-tight mb-6">
+          Clientes que <br />
+            <span className="bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent">
+              confian
             </span>
           </h2>
-          <p className="text-xl text-gray-600 font-mont font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 font-light max-w-2xl mx-auto">
             Sus resultados hablan por nosotros. Estas son las voces de quienes han transformado su{' '}
             <span className="text-[#222952] font-medium">negocio inmobiliario</span> con nuestra{' '}
             <span className="text-[#6D7FBE] font-medium">metodología</span>.
           </p>
         </div>
 
-        {/* Card destacada */}
-        <div className="mb-20">
-          <div className="relative bg-gradient-to-br from-white to-[#EBF0CB]/10 rounded-3xl p-12 shadow-2xl border border-gray-100 max-w-5xl mx-auto">
-            <div className="absolute -top-6 left-12">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#222952] to-[#6D7FBE] rounded-full flex items-center justify-center">
-                <Quote className="w-6 h-6 text-white" />
-              </div>
-            </div>
-            <div className="text-center">
-              <blockquote className="text-2xl md:text-3xl text-gray-700 font-mont font-light mb-8 leading-relaxed italic">
-                "{testimonials[activeTestimonial].testimonial}"
-              </blockquote>
-              <div className="flex justify-center gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-[#EBF0CB] text-[#EBF0CB]" />
-                ))}
-              </div>
-              <div className="flex items-center justify-center gap-6">
-                <div
-                  className={`w-20 h-20 bg-gradient-to-r ${testimonials[activeTestimonial].gradient} rounded-2xl flex items-center justify-center`}
-                >
-                  <span className="text-white font-mont font-black text-xl">
-                    {testimonials[activeTestimonial].initials}
-                  </span>
-                </div>
-                <div className="text-left">
-                  <div className="font-mont font-black text-[#222952] text-xl">
-                    {testimonials[activeTestimonial].name}
-                  </div>
-                  <div className="text-gray-600 font-mont font-medium">
-                    {testimonials[activeTestimonial].role}
-                  </div>
-                  <div className="text-[#6D7FBE] font-mont font-semibold text-sm">
-                    {testimonials[activeTestimonial].company}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center items-center gap-4 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#EBF0CB]/20 hover:border-[#6D7FBE]/30 transition-all duration-300"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeTestimonial
-                        ? 'bg-gradient-to-r from-[#222952] to-[#6D7FBE] w-8'
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={nextTestimonial}
-                className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#EBF0CB]/20 hover:border-[#6D7FBE]/30 transition-all duration-300"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
+        <div className="mb-16">
+  <div className="relative bg-gradient-to-br from-white to-[#EBF0CB]/10 rounded-2xl p-8 shadow-xl border border-gray-100 max-w-4xl mx-auto">
+    <div className="absolute -top-5 left-8">
+      <div className="w-10 h-10 bg-gradient-to-r from-[#222952] to-[#6D7FBE] rounded-full flex items-center justify-center">
+        <Quote className="w-5 h-5 text-white" />
+      </div>
+    </div>
+    <div className="text-center">
+      <blockquote className="text-xl md:text-2xl text-gray-700 font-light mb-6 leading-relaxed italic">
+        "{testimonials[activeTestimonial].testimonial}"
+      </blockquote>
+      <div className="flex justify-center gap-1 mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-5 h-5 fill-[#EBF0CB] text-[#EBF0CB]" />
+        ))}
+      </div>
+      <div className="flex items-center justify-center gap-4">
+        <div
+          className={`w-16 h-16 bg-gradient-to-r ${testimonials[activeTestimonial].gradient} rounded-xl flex items-center justify-center`}
+        >
+          <span className="text-white font-black text-lg">
+            {testimonials[activeTestimonial].initials}
+          </span>
+        </div>
+        <div className="text-left">
+          <div className="font-black text-[#222952] text-lg">
+            {testimonials[activeTestimonial].name}
+          </div>
+          <div className="text-gray-600 text-sm">
+            {testimonials[activeTestimonial].role}
+          </div>
+          <div className="text-[#6D7FBE] font-semibold text-xs">
+            {testimonials[activeTestimonial].company}
           </div>
         </div>
+      </div>
+    </div>
+
+    {/* Navegación */}
+    <div className="flex justify-center items-center gap-3 mt-6">
+      <button
+        onClick={prevTestimonial}
+        className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#EBF0CB]/20 hover:border-[#6D7FBE]/30 transition-all duration-300"
+      >
+        <ChevronLeft className="w-4 h-4 text-gray-600" />
+      </button>
+      <div className="flex gap-2">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveTestimonial(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === activeTestimonial
+                ? 'bg-gradient-to-r from-[#222952] to-[#6D7FBE] w-6'
+                : 'bg-gray-300 hover:bg-gray-400 w-2'
+            }`}
+          />
+        ))}
+      </div>
+      <button
+        onClick={nextTestimonial}
+        className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#EBF0CB]/20 hover:border-[#6D7FBE]/30 transition-all duration-300"
+      >
+        <ChevronRight className="w-4 h-4 text-gray-600" />
+      </button>
+    </div>
+  </div>
+</div>
+
 {/* Cards en grid */}
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
   {testimonials.map((testimonial, index) => {

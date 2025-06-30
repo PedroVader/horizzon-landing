@@ -3,10 +3,10 @@ import "keen-slider/keen-slider.min.css";
 import { useEffect, useRef } from "react";
 
 const brandLogos = [
-  { src: "/images/brands/brand1.png", alt: "Brand 1" },
-  { src: "/images/brands/brand2.png", alt: "Brand 2" },
-  { src: "/images/brands/brand3.png", alt: "Brand 3" },
-  { src: "/images/brands/brand4.png", alt: "Brand 4" },
+  { src: "/images/PNG/zillow.png", alt: "Brand 1" },
+  { src: "/images/PNG/idelista.png", alt: "Brand 2" },
+  { src: "/images/PNG/Logo_Fotocasa.png", alt: "Brand 3" },
+  { src: "/images/PNG/remax.png", alt: "Brand 4" },
   { src: "/images/brands/brand5.png", alt: "Brand 5" },
   { src: "/images/brands/brand1.png", alt: "Brand 1 duplicate" },
   { src: "/images/brands/brand2.png", alt: "Brand 2 duplicate" },
@@ -46,11 +46,13 @@ const BrandsCarousel = () => {
           key={i}
           className="keen-slider__slide flex justify-center items-center"
         >
-          <img
-            src={brand.src}
-            alt={brand.alt}
-            className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-          />
+         <img
+  src={brand.src}
+  alt={brand.alt}
+  className="h-8 md:h-12 object-contain grayscale contrast-0 brightness-75 opacity-80 hover:opacity-100 transition-all duration-300"
+/>
+
+
         </div>
       ))}
     </div>
