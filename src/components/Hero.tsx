@@ -68,7 +68,12 @@ const Hero = () => {
             <span className="text-[#222952] font-medium mx-1">líderes digitales</span>
             con estrategia, diseño y tecnología.
           </p>
-
+          {/* Carrusel de marcas */}
+<div className={`mb-12 transition-all duration-1000 delay-700 ${
+  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+}`}>
+  <BrandsCarousel />
+</div>
           {/* Botones */}
           <div className={`flex flex-col sm:flex-row gap-6 mb-20 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
@@ -88,14 +93,6 @@ const Hero = () => {
               Ver casos de éxito
             </button>
           </div>
-
-          {/* Carrusel de marcas */}
-<div className={`transition-all duration-1000 delay-700 ${
-  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-}`}>
-  <BrandsCarousel />
-</div>
-
         </div>
       </div>
     </section>

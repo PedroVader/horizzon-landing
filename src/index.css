@@ -105,3 +105,34 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brands-scroll {
+  animation: scrollLoop 30s linear infinite;
+  display: flex;
+  gap: 4rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brands-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
