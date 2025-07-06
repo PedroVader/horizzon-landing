@@ -1,11 +1,13 @@
 
-import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import Services from '../components/Services';
-import Cases from '../components/Cases';
-import Testimonials from '../components/Testimonials';
-import Footer from '../components/Footer';
+import Leads from '../components/Leads';
+import Services from '../components/WhatWeDo';
+import ServiceIncludes from '../components/Service';
+import IsThisForYou from '@/components/ThisIsForYou';
+import SuccessCases from '../components/SuccessStories';
+import AboutUs from '../components/AboutUs';  
+
 
 const Index = () => {
   return (
@@ -13,9 +15,11 @@ const Index = () => {
       <Header />
       <Hero />
       <Services />
-      <Cases />
-      <Testimonials />
-      <Footer />
+      <Leads />
+      <ServiceIncludes />
+      <IsThisForYou />
+      <SuccessCases />
+      <AboutUs />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Play, Award } from 'lucide-react';
-import BrandsCarousel from './Carrousel';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,31 +47,30 @@ const Hero = () => {
           }`}>
             <Award className="w-4 h-4 text-[#222952]" />
             <span className="text-[#222952] font-semibold">
-              Agencia líder en marketing inmobiliario
+              Líderes en captación online para inmobiliarias
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className={`text-5xl md:text-7xl font-black font-mont tracking-tight leading-tight mb-10 transition-all duration-1000 ${
+          <h1 className={`text-5xl md:text-5l font-black font-mont tracking-tight leading-tight mb-8 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <span className="block text-[#222952]">Potenciamos</span>
-            <span className="block bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent">marcas inmobiliarias</span>
+            <span className="block text-[#222952]">Consigue propietarios</span>
+            <span className="block bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent">listos para vender en tu zona</span>
           </h1>
 
           {/* Subtítulo */}
           <p className={`text-lg md:text-2xl text-gray-700 font-light max-w-2xl leading-relaxed mb-12 transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
-            Transformamos promotores, inmobiliarias y agentes en 
-            <span className="text-[#222952] font-medium mx-1">líderes digitales</span>
-            con estrategia, diseño y tecnología.
+            Leads exclusivos para inmobiliarias.  
+            <span className="text-[#222952] font-medium mx-1">Sin permanencia.</span>
+            Con resultados.
           </p>
           {/* Carrusel de marcas */}
 <div className={`mb-12 transition-all duration-1000 delay-700 ${
   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
 }`}>
-  <BrandsCarousel />
 </div>
           {/* Botones */}
           <div className={`flex flex-col sm:flex-row gap-6 mb-20 transition-all duration-1000 delay-500 ${
@@ -80,7 +78,7 @@ const Hero = () => {
           }`}>
             <button className="group relative overflow-hidden bg-[#222952] text-white px-10 py-4 rounded-full font-bold text-base hover:scale-105 hover:shadow-lg transition">
               <span className="relative z-10 flex items-center gap-3">
-                Descubre cómo
+                Quiero ver cómo funciona
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
               <div className="absolute inset-0 bg-[#6D7FBE] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-full"></div>
