@@ -68,7 +68,7 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative">
+    <section id="que-hacemos" className="py-24 bg-white relative">
       {/* Background sutil */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute top-20 right-20 w-48 h-48 bg-[#EBF0CB] rounded-full blur-3xl"></div>

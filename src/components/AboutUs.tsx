@@ -72,7 +72,7 @@ const AboutFaqClosing = () => {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50" id='historia'>
       {/* SECCIÓN SOBRE NOSOTROS */}
       <section className="py-24 relative">
         {/* Background simplificado */}
@@ -177,7 +177,7 @@ const AboutFaqClosing = () => {
       </section>
 
       {/* SECCIÓN FAQ */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-white relative" id='faq'>
         <div className="max-w-3xl mx-auto px-6 lg:px-8 relative z-10">
           <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center gap-2 bg-[#EBF0CB] bg-opacity-60 px-4 py-2 rounded-full text-sm font-medium text-[#222952] mb-6">

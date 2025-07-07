@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Globe } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('es');
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,10 +15,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const languages = [
+    { code: 'es', flag: '🇪🇸', name: 'Español' },
+    { code: 'pt', flag: '🇵🇹', name: 'Português' },
+    { code: 'en', flag: '🇬🇧', name: 'English' }
+  ];
+
   const navItems = [
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Casos', href: '#casos' },
-    { name: 'Nosotros', href: '#nosotros' },
+    { name: 'Qué hacemos', href: '#que-hacemos' },
+    { name: 'Servicio', href: '#servicio' },
+    { name: 'Casos de éxito', href: '#casos' },
+    { name: 'Historia', href: '#historia' },
+    { name: 'FAQ', href: '#faq' },
   ];
 
   return (
@@ -46,7 +56,7 @@ const Header = () => {
       </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12">
+          <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
@@ -58,6 +68,42 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#222952] to-[#6D7FBE] group-hover:w-full transition-all duration-500"></span>
               </a>
             ))}
+
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-[#222952] transition-all duration-300 rounded-lg hover:bg-[#EBF0CB]/30"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-sm font-medium">
+                  {languages.find(lang => lang.code === currentLanguage)?.flag} {currentLanguage.toUpperCase()}
+                </span>
+              </button>
+
+              {/* Language Dropdown */}
+              <div className={`absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden transition-all duration-300 ${
+                isLanguageOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'
+              }`}>
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setCurrentLanguage(lang.code);
+                      setIsLanguageOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all duration-300 hover:bg-[#EBF0CB]/30 ${
+                      currentLanguage === lang.code 
+                        ? 'bg-[#6D7FBE]/10 text-[#6D7FBE]' 
+                        : 'text-gray-700 hover:text-[#222952]'
+                    }`}
+                  >
+                    <span className="text-lg">{lang.flag}</span>
+                    <span className="whitespace-nowrap">{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
             
             {/* Botón con efectos avanzados */}
             <button className="relative overflow-hidden bg-gradient-to-r from-[#222952] to-[#6D7FBE] text-white px-8 py-3 font-mont font-bold text-sm tracking-wide rounded-full hover:shadow-2xl hover:shadow-[#6D7FBE]/25 transition-all duration-500 hover:scale-105 group">
@@ -71,7 +117,42 @@ const Header = () => {
           </nav>
 
           {/* Mobile menu button con animación */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            {/* Language selector mobile */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center gap-1 px-2 py-1 text-gray-700 hover:text-[#222952] transition-all duration-300 rounded-lg hover:bg-[#EBF0CB]/30"
+              >
+                <span className="text-sm">
+                  {languages.find(lang => lang.code === currentLanguage)?.flag}
+                </span>
+              </button>
+
+              {/* Language Dropdown Mobile */}
+              <div className={`absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden transition-all duration-300 z-50 ${
+                isLanguageOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'
+              }`}>
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setCurrentLanguage(lang.code);
+                      setIsLanguageOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-300 hover:bg-[#EBF0CB]/30 ${
+                      currentLanguage === lang.code 
+                        ? 'bg-[#6D7FBE]/10 text-[#6D7FBE]' 
+                        : 'text-gray-700 hover:text-[#222952]'
+                    }`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span className="whitespace-nowrap text-xs">{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="relative p-2 text-gray-700 hover:text-[#222952] transition-all duration-300 hover:bg-[#EBF0CB]/30 rounded-full"

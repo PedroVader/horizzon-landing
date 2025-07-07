@@ -1,0 +1,70 @@
+{
+    "hero": {
+      "video_fallback": "O seu navegador não suporta vídeo HTML5.",
+      "badge": "Líderes em captação online para imobiliárias",
+      "title_part1": "Consiga proprietários",
+      "title_part2": "prontos para vender na sua zona",
+      "subtitle_part1": "Leads exclusivos para imobiliárias.",
+      "subtitle_part2": "Sem permanência.",
+      "subtitle_part3": "Com resultados.",
+      "cta_primary": "Quero ver como funciona",
+      "cta_secondary": "Ver casos de sucesso"
+    },
+    "whatWeDo": {
+      "badge": "O nosso processo",
+      "title": "O que fazemos?",
+      "subtitle_part1": "Sistema automatizado para gerar",
+      "subtitle_part2": "leads qualificados",
+      "process_steps": [
+        {
+          "title": "Definimos a sua zona alvo",
+          "description": "Analisamos o seu mercado local e identificamos as melhores oportunidades de captação",
+          "stats": "72h para configurar"
+        },
+        {
+          "title": "Lançamos campanhas direcionadas", 
+          "description": "Criamos e gerimos campanhas no Meta e Google otimizadas para proprietários",
+          "stats": "Meta + Google ativos"
+        },
+        {
+          "title": "Filtramos os contactos",
+          "description": "Só recebe leads qualificados com intenção real de vender", 
+          "stats": "95% de precisão"
+        },
+        {
+          "title": "Entregamos-lhe os leads",
+          "description": "Contactos qualificados em tempo real prontos para contactar",
+          "stats": "Até 40 leads/mês"
+        }
+      ],
+      "step_label": "Passo",
+      "benefits": {
+        "title": "Porque funciona?",
+        "subtitle": "Anos de experiência otimizando cada passo",
+        "items": [
+          {
+            "title": "Poupança de tempo",
+            "value": "4h/semana"
+          },
+          {
+            "title": "Maior conversão", 
+            "value": "3x mais efetivo"
+          },
+          {
+            "title": "Sem risco",
+            "value": "100% flexível"
+          },
+          {
+            "title": "Suporte contínuo",
+            "value": "24/7 disponível"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Pronto para automatizar a sua captação?",
+        "subtitle": "Junte-se às +70 agências que já o fizeram",
+        "button": "Ver demo gratuita",
+        "disclaimer": "🚀 15 minutos • Sem compromisso"
+      }
+    }
+  }

@@ -33,7 +33,7 @@ const ServiceIncludes = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 relative">
+    <section className="py-24 bg-gray-50 relative" id="servicio">
       {/* Background simplificado */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute top-20 left-20 w-48 h-48 bg-[#EBF0CB] rounded-full blur-3xl"></div>

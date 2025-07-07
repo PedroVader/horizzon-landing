@@ -74,7 +74,7 @@ const SuccessCases = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header simplificado */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-[#EBF0CB] bg-opacity-60 px-4 py-2 rounded-full text-sm font-medium text-[#222952] mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#EBF0CB] bg-opacity-60 px-4 py-2 rounded-full text-sm font-medium text-[#222952] mb-6" id='casos'>
             <Star className="w-4 h-4 text-yellow-500" />
             Resultados reales
           </div>
