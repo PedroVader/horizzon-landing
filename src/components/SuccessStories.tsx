@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Quote, TrendingUp, Calendar, MapPin, Users, Award, ArrowRight, Building2, Target, Zap } from 'lucide-react';
+import { Star, Quote, MapPin, Award, ArrowRight, Building2, CheckCircle, Play } from 'lucide-react';
 
 const SuccessCases = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 300);
+    const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -17,7 +17,6 @@ const SuccessCases = () => {
       author: "Carlos Mendoza",
       company: "Agencia NovaHabitat",
       location: "Madrid",
-      avatar: "🏢",
       stats: { encargos: 3, leads: 38, tiempo: 4 }
     },
     {
@@ -26,7 +25,6 @@ const SuccessCases = () => {
       author: "Marina Silva",
       company: "Silva Propiedades",
       location: "Barcelona",
-      avatar: "🏠",
       stats: { encargos: 5, leads: 42, tiempo: 3 }
     },
     {
@@ -35,7 +33,6 @@ const SuccessCases = () => {
       author: "Alejandro Torres",
       company: "Torres & Asociados",
       location: "Valencia",
-      avatar: "🏆",
       stats: { encargos: 8, leads: 45, tiempo: 2 }
     },
     {
@@ -44,215 +41,205 @@ const SuccessCases = () => {
       author: "Isabel Ramírez",
       company: "Ramírez Inmobiliaria",
       location: "Sevilla",
-      avatar: "⭐",
       stats: { encargos: 4, leads: 36, tiempo: 5 }
     }
   ];
 
   const metrics = [
-    { icon: <Award className="w-5 h-5" />, value: "94%", label: "Satisfacción", color: "text-[#6D7FBE]" },
-    { icon: <TrendingUp className="w-5 h-5" />, value: "3.8x", label: "ROI promedio", color: "text-[#222952]" },
-    { icon: <Target className="w-5 h-5" />, value: "40+", label: "Leads/mes", color: "text-[#6D7FBE]" },
-    { icon: <Calendar className="w-5 h-5" />, value: "<30", label: "Días primer encargo", color: "text-[#222952]" }
+    { value: "94%", label: "Satisfacción" },
+    { value: "3.8x", label: "ROI promedio" },
+    { value: "40+", label: "Leads/mes" },
+    { value: "<30", label: "Días primer encargo" }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="py-24 bg-gray-50 relative">
-      {/* Background simplificado */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="absolute top-20 left-20 w-48 h-48 bg-[#EBF0CB] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#6D7FBE] bg-opacity-20 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* Header simplificado */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-[#EBF0CB] bg-opacity-60 px-4 py-2 rounded-full text-sm font-medium text-[#222952] mb-6" id='casos'>
-            <Star className="w-4 h-4 text-yellow-500" />
-            Resultados reales
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-[#222952] leading-tight mb-4">
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent">
-                Casos de éxito
+    <>
+      {/* White transition section */}
+      <div className="h-12 bg-white"></div>
+      
+      <section className="py-24 bg-white" id="casos">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Header */}
+          <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px w-12 bg-[#6D7FBE]"></div>
+              <Award className="w-6 h-6 text-[#6D7FBE]" />
+              <div className="h-px w-12 bg-[#6D7FBE]"></div>
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="text-[#222952]">Casos de éxito</span>
+              <span className="block text-3xl md:text-4xl font-light text-[#6D7FBE] mt-2">
+                resultados reales
               </span>
-              <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#6D7FBE] to-[#222952] rounded-full"></div>
-            </span>
-          </h2>
-
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Profesionales como tú que han{' '}
-            <span className="font-semibold text-[#222952]">transformado su negocio</span>
-          </p>
-        </div>
-
-        {/* Métricas simplificadas */}
-        <div className={`grid md:grid-cols-4 gap-4 mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-          {metrics.map((metric, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-xl p-4 border border-gray-200 text-center"
-            >
-              <div className="w-8 h-8 mx-auto mb-3 flex items-center justify-center">
-                <div className={metric.color}>
-                  {metric.icon}
-                </div>
-              </div>
-              <div className={`text-2xl font-bold ${metric.color} mb-1`}>
-                {metric.value}
-              </div>
-              <div className="text-xs text-gray-600 font-medium">
-                {metric.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonial principal simplificado */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Testimonio destacado */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '400ms' }}>
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-              {/* Avatar y empresa */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#6D7FBE] rounded-xl flex items-center justify-center text-lg">
-                  {testimonials[activeTestimonial].avatar}
-                </div>
-                <div>
-                  <h3 className="font-bold text-[#222952]">
-                    {testimonials[activeTestimonial].author}
-                  </h3>
-                  <p className="text-[#6D7FBE] text-sm font-medium">
-                    {testimonials[activeTestimonial].company}
-                  </p>
-                  <div className="flex items-center gap-1 text-gray-500 text-xs">
-                    <MapPin className="w-3 h-3" />
-                    {testimonials[activeTestimonial].location}
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonio */}
-              <blockquote className="text-lg text-gray-700 leading-relaxed mb-4 italic">
-                "{testimonials[activeTestimonial].quote}"
-              </blockquote>
-
-              {/* Rating */}
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
-                ))}
-                <span className="text-gray-600 ml-1 text-sm">5.0</span>
-              </div>
-
-              {/* Stats simplificadas */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
-                <div className="text-center">
-                  <div className="text-xl font-bold text-[#6D7FBE] mb-1">
-                    {testimonials[activeTestimonial].stats.encargos}
-                  </div>
-                  <div className="text-xs text-gray-600">Encargos</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl font-bold text-[#222952] mb-1">
-                    {testimonials[activeTestimonial].stats.leads}
-                  </div>
-                  <div className="text-xs text-gray-600">Leads/mes</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl font-bold text-[#6D7FBE] mb-1">
-                    {testimonials[activeTestimonial].stats.tiempo}h
-                  </div>
-                  <div className="text-xs text-gray-600">Ahorradas</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Indicadores simplificados */}
-            <div className="flex justify-center gap-2 mt-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === activeTestimonial 
-                      ? 'bg-[#6D7FBE] w-6' 
-                      : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
+            </h2>
+            
+            <p className="text-xl text-[#222952] max-w-3xl mx-auto leading-relaxed">
+              Profesionales como tú que han transformado su negocio y multiplicado sus resultados
+            </p>
           </div>
 
-          {/* Lista de testimoniales */}
-          <div className={`space-y-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '600ms' }}>
-            {testimonials.filter((_, index) => index !== activeTestimonial).map((testimonial, index) => (
-              <div 
-                key={testimonial.id}
-                className="bg-white rounded-xl p-4 border border-gray-200 cursor-pointer hover:border-[#6D7FBE] hover:border-opacity-50 transition-all duration-300"
-                onClick={() => setActiveTestimonial(testimonials.findIndex(t => t.id === testimonial.id))}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-[#6D7FBE] rounded-lg flex items-center justify-center text-sm">
-                    {testimonial.avatar}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-[#222952] text-sm">
-                      {testimonial.author}
-                    </h4>
-                    <p className="text-[#6D7FBE] text-xs">
-                      {testimonial.company}
+          {/* Métricas */}
+          <div className={`grid md:grid-cols-4 gap-8 mb-20 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
+            {metrics.map((metric, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold text-[#222952] mb-2">
+                  {metric.value}
+                </div>
+                <div className="text-[#6D7FBE]">
+                  {metric.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navegación simple */}
+          <div className={`flex justify-center gap-2 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTestimonial(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  activeTestimonial === index
+                    ? 'bg-[#222952] scale-125'
+                    : 'bg-[#6D7FBE] hover:bg-[#222952]'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Testimonial principal */}
+          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: '600ms' }}>
+            <div className="max-w-4xl mx-auto mb-20">
+              <div className="bg-white border border-gray-100 rounded-3xl p-12 shadow-sm">
+                <div className="text-center mb-8">
+                  <Quote className="w-12 h-12 text-[#6D7FBE] mx-auto mb-6 opacity-60" />
+                  
+                  <blockquote className="text-3xl font-bold text-[#222952] leading-tight mb-8">
+                    "{testimonials[activeTestimonial].quote}"
+                  </blockquote>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-[#222952] mb-1">
+                      {testimonials[activeTestimonial].author}
+                    </h3>
+                    <p className="text-lg text-[#6D7FBE] font-medium mb-2">
+                      {testimonials[activeTestimonial].company}
                     </p>
+                    <div className="flex items-center justify-center gap-2 text-[#222952]">
+                      <MapPin className="w-4 h-4" />
+                      <span>{testimonials[activeTestimonial].location}</span>
+                    </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-400" />
+
+                  <div className="flex items-center justify-center gap-2 mb-8">
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[#222952] font-medium">5.0</span>
+                    <span className="text-[#6D7FBE] text-sm">• Verificado</span>
+                  </div>
                 </div>
                 
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
-                  "{testimonial.quote}"
-                </p>
+                {/* Stats simples */}
+                <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto border-t border-gray-100 pt-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#222952] mb-2">
+                      {testimonials[activeTestimonial].stats.encargos}
+                    </div>
+                    <div className="text-[#6D7FBE] text-sm">
+                      Encargos cerrados
+                    </div>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#222952] mb-2">
+                      {testimonials[activeTestimonial].stats.leads}
+                    </div>
+                    <div className="text-[#6D7FBE] text-sm">
+                      Leads mensuales
+                    </div>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-[#222952] mb-2">
+                      {testimonials[activeTestimonial].stats.tiempo}h
+                    </div>
+                    <div className="text-[#6D7FBE] text-sm">
+                      Tiempo ahorrado
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+          </div>
 
-            {/* CTA simplificado */}
-            <div className="bg-[#EBF0CB] bg-opacity-40 rounded-xl p-6 text-center">
-              <Zap className="w-8 h-8 text-[#6D7FBE] mx-auto mb-3" />
-              <h3 className="font-bold text-[#222952] mb-2">
-                ¿Quieres ser el siguiente?
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Únete a +200 agencias exitosas
+          {/* Logos simples */}
+          <div className={`relative mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
+            <div className="text-center">
+              <p className="text-[#6D7FBE] mb-8 font-medium">
+                Confían en nosotros más de 70 agencias inmobiliarias
               </p>
-              <button className="w-full bg-gradient-to-r from-[#6D7FBE] to-[#222952] text-white px-4 py-2 rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
-                <Users className="w-4 h-4" />
-                Ver más casos
-              </button>
+              
+              <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+                {['NovaHabitat', 'Silva Propiedades', 'Torres & Asociados', 'Ramírez Inmobiliaria', 'Habitat Premium', 'Central'].map((company, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-2 text-[#6D7FBE] hover:text-[#222952] transition-colors duration-300"
+                  >
+                    <Building2 className="w-4 h-4" />
+                    <span className="text-sm font-medium">{company}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA final */}
+          <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '1000ms' }}>
+            <h3 className="text-3xl font-bold text-[#222952] mb-4">
+              ¿Quieres ser el siguiente caso de éxito?
+            </h3>
+            <p className="text-[#6D7FBE] mb-8 max-w-xl mx-auto">
+              Únete a +200 agencias que ya están multiplicando sus resultados
+            </p>
+            
+            <button className="group bg-[#222952] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto">
+              <Play className="w-5 h-5" />
+              Ver casos completos
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+            
+            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-[#6D7FBE]">
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" />
+                Casos verificados
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" />
+                Resultados reales
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" />
+                Sin compromiso
+              </span>
             </div>
           </div>
         </div>
-
-        {/* Logos empresas simplificado */}
-        <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
-          <p className="text-gray-500 text-sm mb-4">
-            Confían en nosotros +200 agencias inmobiliarias
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 opacity-60">
-            {['NovaHabitat', 'Silva Propiedades', 'Torres & Asociados', 'Ramírez Inmobiliaria'].map((company, index) => (
-              <div key={index} className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-gray-600 text-xs font-medium">
-                {company}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+      
+      {/* White transition section */}
+      <div className="h-12 bg-white"></div>
+    </>
   );
 };
 

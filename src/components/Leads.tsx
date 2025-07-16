@@ -1,140 +1,232 @@
-import React, { useState } from 'react';
-import { CheckCircle, Filter, Sparkles, Target, TrendingUp, Users, ArrowRight, Zap } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { CheckCircle, Filter, Sparkles, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const RealLeads = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const statsRef = useRef(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setStatsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => {
+      if (statsRef.current) observer.unobserve(statsRef.current);
+    };
+  }, []);
+
+  const AnimatedNumber = ({ value, duration = 2000, prefix = '', suffix = '' }) => {
+    const [displayValue, setDisplayValue] = useState(0);
+    useEffect(() => {
+      if (!statsVisible) return;
+      const numericValue = parseInt(value.toString().replace(/\D/g, ''));
+      const increment = numericValue / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= numericValue) {
+          setDisplayValue(numericValue);
+          clearInterval(timer);
+        } else {
+          setDisplayValue(Math.floor(current));
+        }
+      }, 16);
+      return () => clearInterval(timer);
+    }, [value, duration, statsVisible]);
+    return <span>{prefix}{displayValue}{suffix}</span>;
+  };
+
   const features = [
-    {
-      icon: <Target className="w-4 h-4" />,
-      text: 'Formularios online con filtros que verifican el interés real del contacto'
-    },
-    {
-      icon: <Filter className="w-4 h-4" />,
-      text: 'Preguntas clave para descartar perfiles poco comprometidos'
-    },
-    {
-      icon: <Users className="w-4 h-4" />,
-      text: 'Segmentación avanzada por zona, tipo de inmueble y situación del vendedor'
-    },
-    {
-      icon: <Zap className="w-4 h-4" />,
-      text: 'Aunque puede colarse algún lead no deseado, no es lo habitual'
-    },
-    {
-      icon: <TrendingUp className="w-4 h-4" />,
-      text: 'Resultado: Leads más calientes, más abiertos a hablar, y con más probabilidades de acabar en encargo'
-    }
+    { icon: <Filter className="w-8 h-8" />, title: 'Formularios inteligentes', text: 'Verifican el interés real de cada propietario' },
+    { icon: <CheckCircle className="w-8 h-8" />, title: 'Preguntas clave', text: 'Descartan perfiles débiles automáticamente' },
+    { icon: <Sparkles className="w-8 h-8" />, title: 'Segmentación precisa', text: 'Por zona geográfica y tipo de inmueble' },
+    { icon: <ArrowRight className="w-8 h-8" />, title: 'Máxima efectividad', text: 'Eliminamos leads no cualificados' }
   ];
 
   const stats = [
-    { number: '3x', label: 'Más conversión' },
-    { number: '85%', label: 'Contacto exitoso' },
-    { number: '60%', label: 'Menos tiempo perdido' }
+    { number: '3', suffix: 'x', label: 'Mayor conversión' },
+    { number: '85', suffix: '%', label: 'Contacto exitoso' },
+    { number: '60', suffix: '%', label: 'Tiempo ahorrado' }
   ];
 
+  // Carousel logic
+  const itemsPerSlide = 2; // Mostrar 2 features por slide
+  const totalSlides = Math.ceil(features.length / itemsPerSlide);
+
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [isPaused, totalSlides]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const getCurrentFeatures = () => {
+    const startIndex = currentSlide * itemsPerSlide;
+    return features.slice(startIndex, startIndex + itemsPerSlide);
+  };
+
   return (
-    <section className="py-24 bg-white relative">
-      {/* Background simplificado */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
-        <div className="absolute top-20 left-20 w-48 h-48 bg-[#EBF0CB] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#6D7FBE] bg-opacity-20 rounded-full blur-3xl"></div>
-      </div>
+    <>
+      {/* Transition section */}
+      <div className="h-12 bg-white"></div>
+      
+      <section className="py-24 bg-gradient-to-b from-white via-[#EBF0CB]/30 to-white relative overflow-hidden">
+        {/* Background decorativo sutil */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#EBF0CB]/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[#EBF0CB]/15 rounded-full blur-3xl"></div>
+        </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Contenido izquierdo */}
-          <div>
-            {/* Header simplificado */}
-            <div className="mb-10">
-              <div className="inline-flex items-center gap-2 bg-[#EBF0CB] bg-opacity-60 px-4 py-2 rounded-full text-sm font-medium text-[#222952] mb-6">
-                <Sparkles className="w-4 h-4 text-[#6D7FBE]" />
-                Calidad garantizada
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h2 className="text-5xl md:text-7xl font-bold text-[#222952] mb-4">
+              Leads verificados que convierten
+            </h2>
+            <p className="text-xl text-[#222952]/70 max-w-xl mx-auto">
+              Solo propietarios con intención real de vender
+            </p>
+          </div>
+
+          <div ref={statsRef} className={`grid md:grid-cols-3 gap-8 mb-20 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-6xl font-bold text-[#6D7FBE]">
+                  <AnimatedNumber value={stat.number} suffix={stat.suffix} />
+                </div>
+                <p className="text-base text-[#222952]/70 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Section */}
+          <div 
+            className={`mb-20 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div className="relative">
+              {/* Carousel Container */}
+              <div className="overflow-hidden rounded-2xl">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {Array.from({ length: totalSlides }, (_, slideIndex) => (
+                    <div key={slideIndex} className="w-full flex-shrink-0">
+                      <div className="grid md:grid-cols-2 gap-6 p-4">
+                        {features.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((feature, index) => (
+                          <div 
+                            key={index} 
+                            className="bg-white border border-[#EBF0CB]/50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                          >
+                            <div className="mb-6 text-[#6D7FBE] flex justify-center">{feature.icon}</div>
+                            <h3 className="text-xl font-semibold text-[#222952] mb-3">{feature.title}</h3>
+                            <p className="text-base text-[#222952]/70 leading-relaxed">{feature.text}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-[#222952] leading-tight mb-6">
-                Leads reales,{' '}
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent">
-                    no curiosos
-                  </span>
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#6D7FBE] to-[#222952] rounded-full"></div>
-                </span>
-              </h2>
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white border border-[#EBF0CB] rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white border border-[#EBF0CB] rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
 
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Sistema diseñado para filtrar y atraer propietarios{' '}
-                <span className="font-semibold text-[#222952]">listos para avanzar</span>.
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalSlides }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide 
+                      ? 'bg-[#6D7FBE] scale-125' 
+                      : 'bg-[#6D7FBE]/30 hover:bg-[#6D7FBE]/60'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 mb-20 items-center">
+            <div>
+              <h3 className="text-4xl font-bold text-[#222952] mb-6">
+                Oportunidades listas para cerrar
+              </h3>
+              <p className="text-xl text-[#222952]/70 mb-8">
+                Leads más abiertos a hablar y con más probabilidades de encargo exclusivo.
               </p>
-
-              {/* Estadísticas simplificadas */}
-              <div className="grid grid-cols-3 gap-4">
-                {stats.map((stat, index) => (
-                  <div 
-                    key={index}
-                    className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200"
-                  >
-                    <div className="text-xl font-bold text-[#6D7FBE] mb-1">
-                      {stat.number}
-                    </div>
-                    <div className="text-xs text-gray-600 font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <ul className="space-y-4 text-[#222952]/80 text-lg mb-8">
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
+                  Propietarios verificados
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
+                  Datos actualizados
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
+                  Listos para contactar
+                </li>
+              </ul>
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-[#222952] text-white text-lg rounded-full hover:bg-[#6D7FBE] transition-all duration-300 transform hover:scale-105">
+                Ver casos de éxito
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
-          </div>
-
-          {/* Card simplificada */}
-          <div className="relative">
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-              {/* Icono principal */}
-              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#EBF0CB] bg-opacity-60 mb-6">
-                <Filter className="w-6 h-6 text-[#222952]" />
-              </div>
-
-              {/* Lista de características simplificada */}
-              <div className="space-y-4 mb-6">
-                {features.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-start gap-3 text-gray-700 text-sm"
-                  >
-                    <div className="flex-shrink-0 p-1.5 rounded-lg bg-[#EBF0CB] bg-opacity-40 text-[#6D7FBE]">
-                      {feature.icon}
-                    </div>
-                    <span className="leading-relaxed">{feature.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Footer simplificado */}
-              <div className="pt-4 border-t border-gray-100 text-center">
-                <div className="text-sm font-semibold text-[#6D7FBE] mb-1">
-                  ✓ Resultado garantizado
-                </div>
-                <div className="text-xs text-gray-500">
-                  Leads de mayor calidad y conversión
-                </div>
-              </div>
+            <div className="bg-[#EBF0CB]/40 rounded-xl p-8 text-center border border-[#EBF0CB]/60">
+              <Sparkles className="w-12 h-12 text-[#6D7FBE] mx-auto mb-6" />
+              <p className="text-xl text-[#222952]/70 leading-relaxed">
+                Los agentes ahorran <span className="font-bold text-[#6D7FBE]">4h</span> semanales y aumentan <span className="font-bold text-[#222952]">40%</span> su tasa de cierre
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Sección de confianza simplificada */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 mt-16 relative z-10">
-        <div className="bg-[#EBF0CB] bg-opacity-40 rounded-xl p-6 text-center">
-          <div className="text-base font-semibold text-[#222952] mb-2">
-            💡 Dato clave
-          </div>
-          <p className="text-gray-600 text-sm">
-            Los agentes ahorran{' '}
-            <span className="font-bold text-[#6D7FBE]">4h semanales</span> y aumentan{' '}
-            <span className="font-bold text-[#222952]">40% su tasa de cierre</span>
-          </p>
-        </div>
-      </div>
-    </section>
+      {/* Transition section */}
+      <div className="h-12 bg-white"></div>
+    </>
   );
 };
 

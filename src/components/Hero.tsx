@@ -13,6 +13,34 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Logos de ejemplo de Unsplash
+  const logos = [
+    {
+      src: "/images/PNG/logo-inmobiliaria-1.png",
+      alt: "Inmobiliaria 1"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=100&fit=crop&crop=center",
+      alt: "Inmobiliaria 2"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&h=100&fit=crop&crop=center",
+      alt: "Inmobiliaria 3"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=200&h=100&fit=crop&crop=center",
+      alt: "Inmobiliaria 4"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=100&fit=crop&crop=center",
+      alt: "Inmobiliaria 5"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=200&h=100&fit=crop&crop=center",
+      alt: "Inmobiliaria 6"
+    }
+  ];
+
   return (
     <section className="min-h-screen relative flex items-center pt-24 overflow-hidden">
       {/* Video de fondo */}
@@ -23,7 +51,7 @@ const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/video-example.mp4" type="video/mp4" />
+        <source src="../images/PNG/video-realstate.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>
 
@@ -51,8 +79,8 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Título */}
-          <h1 className={`text-3xl sm:text-5xl font-black font-mont tracking-tight leading-tight mb-6 sm:mb-8 transition-all duration-1000 ${
+          {/* Título - Más grande */}
+          <h1 className={`text-6xl sm:text-6xl lg:text-6xl font-black tracking-tight leading-tight mb-6 sm:mb-8 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <span className="block text-[#222952]">Consigue propietarios</span>
@@ -62,13 +90,37 @@ const Hero = () => {
           </h1>
 
           {/* Subtítulo */}
-          <p className={`text-base sm:text-xl text-gray-700 font-light max-w-xl leading-relaxed mb-10 sm:mb-12 transition-all duration-1000 delay-300 ${
+          <p className={`text-base sm:text-xl text-gray-700 font-light max-w-xl leading-relaxed mb-6 sm:mb-8 transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             Leads exclusivos para inmobiliarias.
             <span className="text-[#222952] font-medium mx-1">Sin permanencia.</span>
             Con resultados.
           </p>
+
+          {/* Carrusel de logos */}
+          <div className={`mb-10 sm:mb-12 transition-all duration-1000 delay-400 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-pulse">
+                <div className="flex space-x-8 animate-scroll">
+                  {logos.concat(logos).map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-32 h-16 bg-white/80 rounded-lg shadow-sm flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="w-full h-full object-cover rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Botones */}
           <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-20 transition-all duration-1000 delay-500 ${
@@ -86,13 +138,27 @@ const Hero = () => {
               <div className="w-10 h-10 bg-[#EBF0CB]/60 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Play className="w-4 h-4 ml-0.5" />
               </div>
-              Ver casos de éxito
+              Ver casos de exito
             </button>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default Hero;
+export default Hero;  

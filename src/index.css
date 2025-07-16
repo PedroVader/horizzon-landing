@@ -4,6 +4,15 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
+@font-face {
+  font-family: 'MontHeavy';
+  src: url('/fonts/mont-heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -53,6 +62,14 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  h1 {
+    @apply font-montHeavy;
+  }
+
+  h2 {
+    @apply font-montHeavy;
+  }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -90,6 +107,20 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  @layer base {
+    * {
+      @apply border-border;
+    }
+  
+    body {
+      @apply bg-background text-foreground;
+    }
+  
+    h1 {
+      font-family: 'MontHeavy', sans-serif;
+    }
+  }
+  
 }
 
 @layer base {
@@ -135,4 +166,5 @@ html {
   width: max-content;
   animation: scroll 30s linear infinite;
 }
+
 

@@ -74,6 +74,7 @@ export default {
 			fontFamily: {
 				'mont': ['Montserrat', 'sans-serif'],
 				'minion': ['Minion Pro', 'serif'],
+				'montHeavy': ['MontHeavy', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
