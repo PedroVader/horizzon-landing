@@ -75,6 +75,7 @@ export default {
 				'mont': ['Montserrat', 'sans-serif'],
 				'minion': ['Minion Pro', 'serif'],
 				'montHeavy': ['MontHeavy', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'], // ← AGREGAR ESTA LÍNEA
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

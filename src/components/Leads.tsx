@@ -61,7 +61,7 @@ const RealLeads = () => {
   ];
 
   // Carousel logic
-  const itemsPerSlide = 2; // Mostrar 2 features por slide
+  const itemsPerSlide = 2;
   const totalSlides = Math.ceil(features.length / itemsPerSlide);
 
   useEffect(() => {
@@ -85,27 +85,22 @@ const RealLeads = () => {
     setCurrentSlide(index);
   };
 
-  const getCurrentFeatures = () => {
-    const startIndex = currentSlide * itemsPerSlide;
-    return features.slice(startIndex, startIndex + itemsPerSlide);
-  };
-
   return (
     <>
       {/* Transition section */}
       <div className="h-12 bg-white"></div>
       
-      <section className="py-24 bg-gradient-to-b from-white via-[#EBF0CB]/30 to-white relative overflow-hidden">
-        {/* Background decorativo sutil */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Background decorativo muy sutil */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#EBF0CB]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-[#EBF0CB]/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-gray-50 rounded-full blur-3xl opacity-50"></div>
+          <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gray-50 rounded-full blur-3xl opacity-30"></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-5xl md:text-7xl font-bold text-[#222952] mb-4">
-              Leads verificados que convierten
+              Leads <span className="bg-gradient-to-r from-[#222952] to-[#EBF0CB] bg-clip-text text-transparent">verificados</span> que convierten
             </h2>
             <p className="text-xl text-[#222952]/70 max-w-xl mx-auto">
               Solo propietarios con intención real de vender
@@ -123,7 +118,7 @@ const RealLeads = () => {
             ))}
           </div>
 
-          {/* Carousel Section */}
+          {/* Carousel Section con bordes de destello */}
           <div 
             className={`mb-20 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             onMouseEnter={() => setIsPaused(true)}
@@ -142,11 +137,18 @@ const RealLeads = () => {
                         {features.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((feature, index) => (
                           <div 
                             key={index} 
-                            className="bg-white border border-[#EBF0CB]/50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                            className="relative bg-white rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group"
                           >
-                            <div className="mb-6 text-[#6D7FBE] flex justify-center">{feature.icon}</div>
-                            <h3 className="text-xl font-semibold text-[#222952] mb-3">{feature.title}</h3>
-                            <p className="text-base text-[#222952]/70 leading-relaxed">{feature.text}</p>
+                            {/* Borde animado con destello */}
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#EBF0CB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
+                            <div className="absolute inset-0 rounded-xl border-2 border-[#EBF0CB]/30 group-hover:border-[#EBF0CB]/60 transition-colors duration-300"></div>
+                            
+                            {/* Contenido */}
+                            <div className="relative z-10">
+                              <div className="mb-6 text-[#6D7FBE] flex justify-center">{feature.icon}</div>
+                              <h3 className="text-xl font-semibold text-[#222952] mb-3">{feature.title}</h3>
+                              <p className="text-base text-[#222952]/70 leading-relaxed font-playfair italic">{feature.text}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -158,14 +160,14 @@ const RealLeads = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white border border-[#EBF0CB] rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               
               <button
                 onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white border border-[#EBF0CB] rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -195,7 +197,7 @@ const RealLeads = () => {
               <p className="text-xl text-[#222952]/70 mb-8">
                 Leads más abiertos a hablar y con más probabilidades de encargo exclusivo.
               </p>
-              <ul className="space-y-4 text-[#222952]/80 text-lg mb-8">
+              <ul className="space-y-4 text-[#222952]/80 text-lg mb-8 font-playfair italic">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
                   Propietarios verificados
@@ -214,11 +216,18 @@ const RealLeads = () => {
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
-            <div className="bg-[#EBF0CB]/40 rounded-xl p-8 text-center border border-[#EBF0CB]/60">
-              <Sparkles className="w-12 h-12 text-[#6D7FBE] mx-auto mb-6" />
-              <p className="text-xl text-[#222952]/70 leading-relaxed">
-                Los agentes ahorran <span className="font-bold text-[#6D7FBE]">4h</span> semanales y aumentan <span className="font-bold text-[#222952]">40%</span> su tasa de cierre
-              </p>
+            <div className="relative bg-gray-50 rounded-xl p-8 text-center border border-gray-100 overflow-hidden">
+              {/* Borde con brillo rotatorio */}
+              <div className="absolute inset-0 rounded-xl border-2 border-[#EBF0CB]/40 animate-clockwise"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#EBF0CB]/60 to-transparent opacity-50 animate-clockwise"></div>
+              
+              {/* Contenido */}
+              <div className="relative z-10">
+                <Sparkles className="w-12 h-12 text-[#6D7FBE] mx-auto mb-6" />
+                <p className="text-xl text-[#222952]/70 leading-relaxed">
+                  Los agentes ahorran <span className="font-bold text-[#6D7FBE]">4h</span> semanales y aumentan <span className="font-bold text-[#222952]">40%</span> su tasa de cierre
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,6 +235,34 @@ const RealLeads = () => {
 
       {/* Transition section */}
       <div className="h-12 bg-white"></div>
+      
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        
+        @keyframes clockwise {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
+        }
+        
+        .animate-clockwise {
+          animation: clockwise 3s linear infinite;
+        }
+      `}</style>
     </>
   );
 };

@@ -13,36 +13,32 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Logos de ejemplo de Unsplash
+  // Logos de ejemplo
   const logos = [
     {
-      src: "/images/PNG/logo-inmobiliaria-1.png",
+      src: "../images/PNG/remax.png",
       alt: "Inmobiliaria 1"
     },
     {
-      src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=100&fit=crop&crop=center",
+      src: "../images/PNG/neinor-homes.png",
       alt: "Inmobiliaria 2"
     },
     {
-      src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&h=100&fit=crop&crop=center",
+      src: "../images/PNG/new-logo-aedas.png",
       alt: "Inmobiliaria 3"
     },
     {
-      src: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=200&h=100&fit=crop&crop=center",
+      src: "../images/PNG/VALENCIAREALESTATELOGOS-01.png",
       alt: "Inmobiliaria 4"
     },
     {
-      src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=100&fit=crop&crop=center",
+      src: "../images/PNG/Century-21-real-estate-Logo.png",
       alt: "Inmobiliaria 5"
     },
-    {
-      src: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=200&h=100&fit=crop&crop=center",
-      alt: "Inmobiliaria 6"
-    }
   ];
 
   return (
-    <section className="min-h-screen relative flex items-center pt-24 overflow-hidden">
+    <section className="h-screen max-h-[800px] min-h-[600px] md:min-h-screen relative flex items-center pt-16 md:pt-24 overflow-hidden">
       {/* Video de fondo */}
       <video
         autoPlay
@@ -67,20 +63,20 @@ const Hero = () => {
       </div>
 
       {/* Contenido */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl">
           {/* Badge */}
-          <div className={`inline-flex items-center gap-2 bg-[#EBF0CB]/70 px-4 py-1.5 rounded-full mb-6 border border-[#222952]/10 text-sm font-medium transition-all duration-1000 ${
+          <div className={`inline-flex items-center gap-2 bg-[#EBF0CB]/70 px-3 py-1.5 rounded-full mb-4 md:mb-6 border border-[#222952]/10 text-xs md:text-sm font-medium transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <Award className="w-4 h-4 text-[#222952]" />
-            <span className="text-[#222952] font-semibold text-xs sm:text-sm">
+            <Award className="w-3 h-3 md:w-4 md:h-4 text-[#222952]" />
+            <span className="text-[#222952] font-semibold">
               Líderes en captación online para inmobiliarias
             </span>
           </div>
 
-          {/* Título - Más grande */}
-          <h1 className={`text-6xl sm:text-6xl lg:text-6xl font-black tracking-tight leading-tight mb-6 sm:mb-8 transition-all duration-1000 ${
+          {/* Título - Optimizado para mobile */}
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-4 md:mb-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <span className="block text-[#222952]">Consigue propietarios</span>
@@ -90,7 +86,7 @@ const Hero = () => {
           </h1>
 
           {/* Subtítulo */}
-          <p className={`text-base sm:text-xl text-gray-700 font-light max-w-xl leading-relaxed mb-6 sm:mb-8 transition-all duration-1000 delay-300 ${
+          <p className={`text-sm sm:text-base md:text-xl text-gray-700 font-light max-w-xl leading-relaxed mb-6 md:mb-8 transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             Leads exclusivos para inmobiliarias.
@@ -98,22 +94,22 @@ const Hero = () => {
             Con resultados.
           </p>
 
-          {/* Carrusel de logos */}
-          <div className={`mb-10 sm:mb-12 transition-all duration-1000 delay-400 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          {/* Carousel de logos elegante - Más compacto en mobile */}
+          <div className={`mb-6 md:mb-10 transition-all duration-1000 delay-400 ${
+            isVisible ? 'opacity-85 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             <div className="relative overflow-hidden">
-              <div className="flex animate-pulse">
-                <div className="flex space-x-8 animate-scroll">
+              <div className="flex animate-fade">
+                <div className="flex space-x-6 md:space-x-12 animate-scroll items-center justify-center min-w-full">
                   {logos.concat(logos).map((logo, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-32 h-16 bg-white/80 rounded-lg shadow-sm flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                      className="flex-shrink-0 opacity-100 hover:opacity-80 transition-all duration-500 transform hover:scale-105"
                     >
                       <img
                         src={logo.src}
                         alt={logo.alt}
-                        className="w-full h-full object-cover rounded-lg opacity-70 hover:opacity-100 transition-opacity duration-300"
+                        className="h-8 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
                       />
                     </div>
                   ))}
@@ -122,23 +118,23 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Botones */}
-          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-20 transition-all duration-1000 delay-500 ${
+          {/* Botones - Más compactos en mobile */}
+          <div className={`flex flex-col sm:flex-row gap-3 md:gap-6 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
-            <button className="group relative overflow-hidden bg-[#222952] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:scale-105 hover:shadow-lg transition">
-              <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+            <button className="group relative overflow-hidden bg-[#222952] text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-sm md:text-base hover:scale-105 hover:shadow-lg transition">
+              <span className="relative z-10 flex items-center justify-center gap-2 md:gap-3">
                 Quiero ver cómo funciona
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
               <div className="absolute inset-0 bg-[#6D7FBE] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-full"></div>
             </button>
 
-            <button className="group flex items-center justify-center gap-3 text-[#222952] font-semibold text-sm sm:text-base hover:text-[#6D7FBE] transition">
-              <div className="w-10 h-10 bg-[#EBF0CB]/60 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-4 h-4 ml-0.5" />
+            <button className="group flex items-center justify-center gap-3 text-[#222952] font-semibold text-sm md:text-base hover:text-[#6D7FBE] transition">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-[#EBF0CB]/60 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5" />
               </div>
-              Ver casos de exito
+              Ver casos de éxito
             </button>
           </div>
         </div>
@@ -153,12 +149,25 @@ const Hero = () => {
           }
         }
         
+        @keyframes fade {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.3;
+          }
+        }
+        
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 25s linear infinite;
+        }
+        
+        .animate-fade {
+          animation: fade 8s ease-in-out infinite;
         }
       `}</style>
     </section>
   );
 };
 
-export default Hero;  
+export default Hero;

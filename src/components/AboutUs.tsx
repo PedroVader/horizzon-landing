@@ -1,5 +1,113 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Award, Clock, MapPin, Calendar, Phone, ChevronDown, CheckCircle, Zap, ArrowRight, Target, Shield, MessageCircle, Layers, Building2 } from 'lucide-react';
+import { Users, Award, Clock, MapPin, Calendar, Phone, ChevronDown, CheckCircle, Zap, ArrowRight, Target, Shield, MessageCircle, Layers, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const LogosCarousel = ({ isVisible }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const companies = [
+    { name: 'Remax', logo: '/logos/novahabitat.png' },
+    { name: 'Neinor Homes', logo: '/logos/silva.png' },
+    { name: 'Century', logo: '/logos/torres.png' },
+    { name: 'Ramírez Inmobiliaria', logo: '/logos/ramirez.png' },
+    { name: 'Habitat Premium', logo: '/logos/habitat.png' },
+    { name: 'Central Inmobiliaria', logo: '/logos/central.png' },
+    { name: 'Madrid Properties', logo: '/logos/madrid.png' },
+    { name: 'Barcelona Homes', logo: '/logos/barcelona.png' },
+    { name: 'Valencia Real Estate', logo: '/logos/valencia.png' }
+  ];
+
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(companies.length / itemsPerSlide);
+
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isPaused, totalSlides]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  return (
+    <div className={`relative mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
+      <div className="text-center">
+        <p className="text-white/80 mb-8 font-medium">
+          Confían en nosotros más de 70 agencias inmobiliarias
+        </p>
+        
+        <div 
+          className="relative max-w-4xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {Array.from({ length: totalSlides }, (_, slideIndex) => (
+                <div key={slideIndex} className="w-full flex-shrink-0">
+                  <div className="flex justify-center gap-8">
+                    {companies.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((company, index) => (
+                      <div 
+                        key={index} 
+                        className="flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 transform hover:scale-105 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20"
+                      >
+                        <Building2 className="w-5 h-5" />
+                        <span className="text-sm font-medium whitespace-nowrap">{company}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all duration-300"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-8 h-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all duration-300"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: totalSlides }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/50 hover:bg-white/80'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AboutFaqClosing = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -33,18 +141,35 @@ const AboutFaqClosing = () => {
   ];
 
   const stats = [
-    { value: "3+", label: "Años experiencia" },
-    { value: "70+", label: "Agencias activas" },
+    { value: "4+", label: "Años experiencia" },
+    { value: "20+", label: "Agencias activas" },
     { value: "8k+", label: "Leads generados" },
     { value: "94%", label: "Satisfacción" }
   ];
 
   const timeline = [
-    { year: "2021", event: "Inicio en el mercado español" },
-    { year: "2022", event: "Más de 50 agencias confían en nosotros" },
-    { year: "2023", event: "Sistema perfeccionado y probado" },
-    { year: "2024", event: "Expansión a Portugal" }
+    {
+      year: "2021",
+      event: "Inicio en el mercado español",
+      img: "/public/images/PNG/españa-bander.png"
+    },
+    {
+      year: "2022",
+      event: "Más de 50 agencias confían en nosotros",
+      img: "/public/images/PNG/century-21.jpg"
+    },
+    {
+      year: "2023",
+      event: "Sistema perfeccionado y probado",
+      img: "/public/images/PNG/workflow-n8n.webp"
+    },
+    {
+      year: "2024",
+      event: "Expansión a Portugal",
+      img: "/public/images/PNG/bandera-portugal.jpg"
+    }
   ];
+  
 
   const faqs = [
     {
@@ -102,7 +227,7 @@ const AboutFaqClosing = () => {
         return (
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
-              <h3 className="text-4xl font-bold text-[#222952] mb-4">
+              <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
                 Nuestra historia
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium mb-8">
@@ -119,25 +244,34 @@ const AboutFaqClosing = () => {
               </div>
             </div>
             
-            {/* Timeline horizontal */}
+            {/* Timeline horizontal con imágenes de fondo */}
             <div className="grid md:grid-cols-4 gap-6">
-              {timeline.map((item, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="w-12 h-12 bg-[#6D7FBE] text-white rounded-full flex items-center justify-center font-bold text-sm mb-3 mx-auto">
-                    {item.year}
-                  </div>
-                  <p className="text-[#222952] text-sm leading-relaxed">{item.event}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  {timeline.map((item, idx) => (
+    <div key={idx} className="text-center">
+      <div
+        className="w-20 h-20 rounded-full bg-cover bg-center mx-auto mb-3 border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
+        style={{ backgroundImage: `url(${item.img})` }}
+      >
+        <div className="w-full h-full bg-[#6D7FBE]/50 rounded-full flex items-center justify-center text-white font-bold text-lg">
+          {item.year}
+        </div>
+      </div>
+      <p className="text-[#222952] text-sm leading-relaxed font-playfair italic">
+        {item.event}
+      </p>
+    </div>
+  ))}
+</div>
+
+</div>
+
         );
 
       case 1: // FAQ
         return (
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold text-[#222952] mb-4">
+              <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
                 Preguntas frecuentes
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium">
@@ -156,16 +290,28 @@ const AboutFaqClosing = () => {
                       <div className="w-8 h-8 bg-[#6D7FBE] text-white rounded-lg flex items-center justify-center flex-shrink-0">
                         {faq.icon}
                       </div>
-                      <span className="font-semibold text-[#222952]">{faq.question}</span>
+                      <span className="font-semibold text-[#222952] font-playfair italic">{faq.question}</span>
                     </div>
                     <ChevronDown className={`w-5 h-5 text-[#6D7FBE] transition-transform duration-200 ${openFaq === idx ? 'rotate-180' : ''}`} />
                   </button>
                   
+                  <AnimatePresence initial={false}>
                   {openFaq === idx && (
-                    <div className="px-6 pb-4 border-t border-gray-100 bg-gray-50">
-                      <p className="text-[#222952] leading-relaxed pt-4">{faq.answer}</p>
-                    </div>
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.1, ease: 'easeInOut' }}
+                      className="overflow-hidden px-6 pb-4 border-t border-gray-100 bg-gray-50"
+                    >
+                      <div className="pt-4">
+                        <p className="text-[#222952] leading-relaxed">{faq.answer}</p>
+                      </div>
+                    </motion.div>
                   )}
+                </AnimatePresence>
+
                 </div>
               ))}
             </div>
@@ -176,7 +322,7 @@ const AboutFaqClosing = () => {
         return (
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
-              <h3 className="text-4xl font-bold text-[#222952] mb-4">
+              <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
                 Agenda tu reunión
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium mb-8">
@@ -189,34 +335,45 @@ const AboutFaqClosing = () => {
               </p>
             </div>
             
-            {/* Beneficios en grid */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {benefits.map((benefit, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="w-16 h-16 bg-[#6D7FBE] text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                    {benefit.icon}
-                  </div>
-                  <h4 className="font-bold text-[#222952] mb-2">{benefit.title}</h4>
-                  <p className="text-[#222952] text-sm">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
+           {/* Beneficios en grid */}
+<div className="grid md:grid-cols-3 gap-8 mb-12">
+  {benefits.map((benefit, idx) => (
+    <div key={idx} className="text-center group">
+      {/* Icono con gradiente - mismo estilo */}
+      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6D7FBE] to-[#222952] text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 mx-auto">
+        {benefit.icon}
+      </div>
+      <h4 className="font-bold text-[#222952] mb-2">{benefit.title}</h4>
+      <p className="text-[#222952] text-sm font-playfair italic">{benefit.description}</p>
+    </div>
+  ))}
+</div>
 
-            {/* CTA destacado */}
-            <div className="bg-gradient-to-br from-[#222952] to-[#6D7FBE] rounded-2xl p-8 text-white">
-              <Phone className="w-12 h-12 mx-auto mb-4 opacity-80" />
-              <h4 className="text-2xl font-bold mb-2">
-                ¡Hablemos!
-              </h4>
-              <p className="opacity-90 mb-4">
-                Respuesta en menos de 2 horas
-              </p>
-              <div className="flex items-center justify-center gap-6 text-sm opacity-80">
-                <span>✓ 100% Gratuito</span>
-                <span>✓ 15 minutos</span>
-                <span>✓ Sin compromiso</span>
-              </div>
-            </div>
+            {/* CTA destacado con imagen de fondo */}
+<div
+  className="relative rounded-2xl p-8 text-white overflow-hidden"
+  style={{
+    backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Overlay suave */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#222952]/45 to-[#6D7FBE]/80 z-0"></div>
+
+  {/* Contenido encima */}
+  <div className="relative z-10 text-center">
+    <Phone className="w-12 h-12 mx-auto mb-4 opacity-80" />
+    <h4 className="text-2xl font-bold mb-2">¡Hablemos!</h4>
+    <p className="opacity-90 mb-4">Respuesta en menos de 2 horas</p>
+    <div className="flex items-center justify-center gap-6 text-sm opacity-80">
+      <span>✓ 100% Gratuito</span>
+      <span>✓ 15 minutos</span>
+      <span>✓ Sin compromiso</span>
+    </div>
+  </div>
+</div>
+
           </div>
         );
 
@@ -226,10 +383,7 @@ const AboutFaqClosing = () => {
   };
 
   return (
-    <>
-      {/* White transition section */}
-      <div className="h-12 bg-white"></div>
-      
+    <>      
       <section className="py-24 bg-gradient-to-br from-[#1a1f3a] to-[#2d3561] relative overflow-hidden" id="historia">
         {/* Background animado con olas y formas flotantes */}
         <div className="absolute inset-0">
@@ -318,7 +472,7 @@ const AboutFaqClosing = () => {
                 <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
-                <div className="text-[#6D7FBE]">
+                <div className="text-[#6D7FBE] font-playfair italic">
                   {stat.label}
                 </div>
               </div>
@@ -370,26 +524,26 @@ const AboutFaqClosing = () => {
             <h3 className="text-3xl font-bold text-white mb-4">
               ¿Tienes más preguntas?
             </h3>
-            <p className="text-white mb-8 max-w-xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-xl mx-auto">
               Hablemos y te contamos todo lo que necesitas saber
             </p>
             
-            <button className="group bg-[#222952] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto">
+            <button className="group bg-white text-[#222952] px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto transform hover:scale-105">
               <Phone className="w-5 h-5" />
               Hablar con un asesor
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
-            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-[#6D7FBE]">
-              <span className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-white/70">
+              <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
                 <CheckCircle className="w-4 h-4" />
                 100% Gratuito
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
                 <CheckCircle className="w-4 h-4" />
                 Solo 15 minutos
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
                 <CheckCircle className="w-4 h-4" />
                 Sin compromiso
               </span>
@@ -397,7 +551,7 @@ const AboutFaqClosing = () => {
           </div>
         </div>
       </section>
-    </>
+      </>
   );
 };
 

@@ -51,7 +51,7 @@ const ClientesPage = () => {
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-[#222952]/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
+          <a href="/"><div className="flex items-center justify-between">
             <img
               src="/images/PNG/Horizzon_logo-azul.png"
               alt="Horizzon Media"
@@ -59,7 +59,8 @@ const ClientesPage = () => {
                 scrolled ? 'h-24 md:h-24' : 'h-20 md:h-24'
               } hover:scale-105`}
             />
-          </div>
+          </div></a>
+          
         </div>
       </header>
 
@@ -278,8 +279,8 @@ const ClientesPage = () => {
               </p>
 
               <div className="text-center">
-                <p className="text-xl font-bold text-[#222952] mb-2">Bienvenido a Horizzon</p>
-                <p className="text-lg text-[#6D7FBE] font-semibold">
+                <p className="text-xl font-bold text-[#222952] mb-2 ">Bienvenido a Horizzon</p>
+                <p className="text-lg text-[#6D7FBE] font-semibold font-playfair italic">
                   Vamos a por esos encargos
                 </p>
               </div>
@@ -297,29 +298,42 @@ const ClientesPage = () => {
                 2
               </div>
               <h2 className="text-3xl font-black text-[#222952]">
-                Cierra reunión vía Calendly para el onboarding
+                Cierra reunion via Calendly para el onboarding
               </h2>
             </div>
 
-            <div className="bg-gradient-to-r from-[#222952] to-[#6D7FBE] rounded-2xl p-8 text-center">
-              <Calendar className="w-16 h-16 text-white mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">
-                ¡Último paso para empezar!
-              </h3>
-              <p className="text-white/90 text-lg mb-8 leading-relaxed">
-                Programa tu reunión de onboarding para configurar tu campaña y empezar a
-                recibir leads en 24-48h.
-              </p>
+            <div
+  className="relative rounded-2xl overflow-hidden text-center"
+  style={{
+    backgroundImage: "url('/images/PNG/call.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  }}
+>
+  {/* Overlay degradado */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#222952]/50 to-[#6D7FBE]/70 z-0" />
 
-              <a
-                href="https://calendly.com/YOURHANDLE/onboarding"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-white text-[#222952] px-8 py-4 rounded-full font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
-              >
-                Reservar mi reunión de onboarding
-              </a>
-            </div>
+  {/* Contenido */}
+  <div className="relative z-10 p-8">
+    <Calendar className="w-16 h-16 text-white mx-auto mb-6" />
+    <h3 className="text-2xl font-bold text-white mb-4">
+      ¡Último paso para empezar!
+    </h3>
+    <p className="text-white/90 text-lg mb-8 leading-relaxed">
+      Programa tu reunión de onboarding para configurar tu campaña y empezar a
+      recibir leads en 24-48h.
+    </p>
+
+    <a
+      href="https://calendly.com/YOURHANDLE/onboarding"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-white text-[#222952] px-8 py-4 rounded-full font-bold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+    >
+      Reservar mi reunión de onboarding
+    </a>
+  </div>
+</div>
           </div>
         </div>
       </section>
