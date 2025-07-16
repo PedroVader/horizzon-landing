@@ -210,7 +210,7 @@ const SuccessCases = () => {
               ¿Quieres ser el siguiente caso de éxito?
             </h3>
             <p className="text-[#6D7FBE] mb-8 max-w-xl mx-auto">
-              Únete a +200 agencias que ya están multiplicando sus resultados
+              Únete a +70 agencias que ya están multiplicando sus resultados
             </p>
             
             <button className="group bg-[#222952] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto">
