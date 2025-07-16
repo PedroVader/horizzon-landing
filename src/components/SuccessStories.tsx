@@ -75,7 +75,7 @@ const SuccessCases = () => {
             </div>
             
             <h2 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-[#222952]">Casos de éxito</span>
+              <span className="text-[#222952]">Casos de exito</span>
               <span className="block text-3xl md:text-4xl font-light text-[#6D7FBE] mt-2">
                 resultados reales
               </span>
@@ -84,20 +84,6 @@ const SuccessCases = () => {
             <p className="text-xl text-[#222952] max-w-3xl mx-auto leading-relaxed">
               Profesionales como tú que han transformado su negocio y multiplicado sus resultados
             </p>
-          </div>
-
-          {/* Métricas */}
-          <div className={`grid md:grid-cols-4 gap-8 mb-20 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-            {metrics.map((metric, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-[#222952] mb-2">
-                  {metric.value}
-                </div>
-                <div className="text-[#6D7FBE]">
-                  {metric.label}
-                </div>
-              </div>
-            ))}
           </div>
 
           {/* Navegación simple */}
