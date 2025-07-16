@@ -45,16 +45,17 @@ const Header = () => {
             scrolled ? 'h-16' : 'h-20'
           }`}>
             <div className="flex-shrink-0 relative z-50">
-              <a href="#top" className="flex items-center group">
-                <img
-                  src="/images/PNG/Horizzon_logo-azul.png"
-                  alt="Horizzon Media Logo"
-                  className={`object-contain transition-all duration-500 ${
-                    scrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'
-                  } group-hover:scale-105`}
-                />
-              </a>
-            </div>
+  <a href="#top" className="flex items-center group">
+    <img
+      src="/images/PNG/Horizzon_logo-azul.png"
+      alt="Horizzon Media Logo"
+      className={`object-contain transition-all duration-500 ${
+        scrolled ? 'h-16 md:h-20' : 'h-20 md:h-24'
+      } group-hover:scale-105`}
+    />
+  </a>
+</div>
+
 
             <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item, index) => (

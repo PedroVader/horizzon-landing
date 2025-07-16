@@ -218,8 +218,7 @@ const RealLeads = () => {
             </div>
             <div className="relative bg-gray-50 rounded-xl p-8 text-center border border-gray-100 overflow-hidden">
               {/* Borde con brillo rotatorio */}
-              <div className="absolute inset-0 rounded-xl border-2 border-[#EBF0CB]/40 animate-clockwise"></div>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#EBF0CB]/60 to-transparent opacity-50 animate-clockwise"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-[#EBF0CB] to-transparent opacity-30 animate-clockwise"></div>
               
               {/* Contenido */}
               <div className="relative z-10">

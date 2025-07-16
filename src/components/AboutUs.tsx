@@ -244,26 +244,27 @@ const AboutFaqClosing = () => {
               </div>
             </div>
             
-            {/* Timeline horizontal con imágenes de fondo */}
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
   {timeline.map((item, idx) => (
     <div key={idx} className="text-center">
+      {/* Versión con backgroundImage mejorada */}
       <div
-        className="w-20 h-20 rounded-full bg-cover bg-center mx-auto mb-3 border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
-        style={{ backgroundImage: `url(${item.img})` }}
+        className="w-24 h-24 md:w-20 md:h-20 rounded-full bg-cover bg-center mx-auto mb-3 border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
+        style={{ 
+          backgroundImage: `url(${item.img})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
       >
-        <div className="w-full h-full bg-[#6D7FBE]/50 rounded-full flex items-center justify-center text-white font-bold text-lg">
+        <div className="w-full h-full bg-[#6D7FBE]/30 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-lg shadow-sm">
           {item.year}
         </div>
       </div>
-      <p className="text-[#222952] text-sm leading-relaxed font-playfair italic">
-        {item.event}
-      </p>
-    </div>
-  ))}
+    </div> // ← faltaba cerrar este div
+  ))} // ← y este paréntesis
 </div>
-
-</div>
+          </div>
 
         );
 
