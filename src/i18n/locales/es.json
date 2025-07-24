@@ -1,70 +1,492 @@
 {
-    "hero": {
-      "video_fallback": "Tu navegador no soporta video HTML5.",
-      "badge": "Líderes en captación online para inmobiliarias",
-      "title_part1": "Consigue propietarios",
-      "title_part2": "listos para vender en tu zona",
-      "subtitle_part1": "Leads exclusivos para inmobiliarias.",
-      "subtitle_part2": "Sin permanencia.",
-      "subtitle_part3": "Con resultados.",
-      "cta_primary": "Quiero ver cómo funciona",
-      "cta_secondary": "Ver casos de éxito"
+  "header": {
+    "logo": {
+      "alt": "Logo de Horizzon Media"
     },
-    "whatWeDo": {
-      "badge": "Nuestro proceso",
-      "title": "¿Qué hacemos?",
-      "subtitle_part1": "Sistema automatizado para generar",
-      "subtitle_part2": "leads cualificados",
-      "process_steps": [
-        {
-          "title": "Definimos tu zona objetivo",
-          "description": "Analizamos tu mercado local y identificamos las mejores oportunidades de captación",
-          "stats": "72h para configurar"
-        },
-        {
-          "title": "Lanzamos campañas dirigidas", 
-          "description": "Creamos y gestionamos campañas en Meta y Google optimizadas para propietarios",
-          "stats": "Meta + Google activos"
-        },
-        {
-          "title": "Filtramos los contactos",
-          "description": "Solo recibes leads cualificados con intención real de vender", 
-          "stats": "95% de precisión"
-        },
-        {
-          "title": "Te entregamos los leads",
-          "description": "Contactos cualificados en tiempo real listos para contactar",
-          "stats": "Hasta 40 leads/mes"
+    "navigation": {
+      "process": "Proceso",
+      "service": "Servicios",
+      "cases": "Casos de éxito",
+      "about": "Nosotros"
+    },
+    "buttons": {
+      "call": "Llamar",
+      "callNow": "Llamar ahora",
+      "freeDemo": "Solicitar demo"
+    },
+    "language": {
+      "spanish": "Español",
+      "portuguese": "Portugués",
+      "english": "Inglés"
+    }
+  },
+  "hero": {
+    "videoFallback": "Tu navegador no admite video HTML5.",
+    "badge": "Líderes en captación online para inmobiliarias",
+    "title": {
+      "line1": "Consigue propietarios",
+      "line2": "listos para vender en tu zona"
+    },
+    "subtitle": {
+      "main": "Leads exclusivos para inmobiliarias.",
+      "highlight": "Sin permanencia.",
+      "ending": "Con resultados."
+    },
+    "logos": {
+      "alt1": "Inmobiliaria 1",
+      "alt2": "Inmobiliaria 2",
+      "alt3": "Inmobiliaria 3",
+      "alt4": "Inmobiliaria 4",
+      "alt5": "Inmobiliaria 5"
+    },
+    "buttons": {
+      "primary": "Quiero ver cómo funciona",
+      "secondary": "Ver casos de éxito"
+    }
+  },
+  "whatWeDo": {
+    "subtitle": "Nuestro proceso",
+    "title": "Que hacemos?",
+    "description": "Sistema automatizado para generar leads cualificados de propietarios vendedores",
+    "process": {
+      "step1": {
+        "title": "Definimos",
+        "subtitle": "tu zona objetivo",
+        "description": "Analizamos tu mercado local para maximizar oportunidades",
+        "stats": {
+          "value": "72",
+          "suffix": "h",
+          "label": "configuración rápida"
         }
-      ],
-      "step_label": "Paso",
-      "benefits": {
-        "title": "¿Por qué funciona?",
-        "subtitle": "Años de experiencia optimizando cada paso",
-        "items": [
-          {
-            "title": "Ahorro de tiempo",
-            "value": "4h/semana"
-          },
-          {
-            "title": "Mayor conversión", 
-            "value": "3x más efectivo"
-          },
-          {
-            "title": "Sin riesgo",
-            "value": "100% flexible"
-          },
-          {
-            "title": "Soporte continuo",
-            "value": "24/7 disponible"
-          }
-        ]
       },
-      "cta": {
-        "title": "¿Listo para automatizar tu captación?",
-        "subtitle": "Únete a las +70 agencias que ya lo han hecho",
-        "button": "Ver demo gratuita",
-        "disclaimer": "🚀 15 minutos • Sin compromiso"
+      "step2": {
+        "title": "Lanzamos",
+        "subtitle": "campañas dirigidas",
+        "description": "Meta y Google Ads optimizadas para propietarios",
+        "stats": {
+          "value": "10",
+          "suffix": "+",
+          "label": "inmobiliarias activas"
+        }
+      },
+      "step3": {
+        "title": "Filtramos",
+        "subtitle": "los contactos",
+        "description": "Solo leads cualificados con intención real",
+        "stats": {
+          "value": "95",
+          "suffix": "%",
+          "label": "de precisión"
+        }
+      },
+      "step4": {
+        "title": "Entregamos",
+        "subtitle": "leads listos",
+        "description": "Contactos verificados directo a tu CRM",
+        "stats": {
+          "value": "40",
+          "suffix": "+",
+          "label": "leads mensuales"
+        }
+      }
+    },
+    "results": {
+      "title": "Resultados que importan"
+    },
+    "cta": {
+      "button": "Empezar ahora"
+    }
+  },
+  "realLeads": {
+    "title": {
+      "main": "Leads",
+      "highlight": "verificados",
+      "ending": "que convierten"
+    },
+    "subtitle": "Solo propietarios con intención real de vender",
+    "stats": {
+      "stat1": {
+        "number": "3",
+        "suffix": "x",
+        "label": "Mayor conversión"
+      },
+      "stat2": {
+        "number": "85",
+        "suffix": "%",
+        "label": "Contacto exitoso"
+      },
+      "stat3": {
+        "number": "60",
+        "suffix": "%",
+        "label": "Tiempo ahorrado"
+      }
+    },
+    "features": {
+      "feature1": {
+        "title": "Formularios inteligentes",
+        "text": "Verifican el interés real de cada propietario"
+      },
+      "feature2": {
+        "title": "Preguntas clave",
+        "text": "Descartan perfiles débiles automáticamente"
+      },
+      "feature3": {
+        "title": "Segmentación precisa",
+        "text": "Por zona geográfica y tipo de inmueble"
+      },
+      "feature4": {
+        "title": "Máxima efectividad",
+        "text": "Eliminamos leads no cualificados"
+      }
+    },
+    "opportunities": {
+      "title": "Oportunidades listas para cerrar",
+      "description": "Leads más abiertos a hablar y con más probabilidades de encargo exclusivo.",
+      "benefits": {
+        "benefit1": "Propietarios verificados",
+        "benefit2": "Datos actualizados",
+        "benefit3": "Listos para contactar"
+      },
+      "cta": "Ver casos de éxito"
+    },
+    "testimonial": {
+      "text": "Los agentes ahorran",
+      "time": "4h",
+      "timeLabel": "semanales y aumentan",
+      "percentage": "40%",
+      "ending": "su tasa de cierre"
+    }
+  },
+  "serviceIncludes": {
+    "subtitle": "Todo incluido",
+    "title": {
+      "main": "Un canal extra de",
+      "highlight": "captacion automatica"
+    },
+    "description": "Todo lo que necesitas para generar leads de calidad sin esfuerzo",
+    "features": {
+      "feature1": {
+        "title": "+ 40 leads exclusivos",
+        "subtitle": "cada mes",
+        "description": "Adaptados a tu zona y tipo de cliente ideal",
+        "highlight": "40"
+      },
+      "feature2": {
+        "title": "Campañas activas",
+        "subtitle": "Meta + Google",
+        "description": "Gestionadas por expertos en captación inmobiliaria",
+        "highlight": "24/7"
+      },
+      "feature3": {
+        "title": "Acompañamiento",
+        "subtitle": "personalizado",
+        "description": "Guión, grupo WhatsApp y revisión mensual",
+        "highlight": "1:1"
+      },
+      "feature4": {
+        "title": "Sin compromiso",
+        "subtitle": "de permanencia",
+        "description": "Trabajamos mes a mes, solo si estás satisfecho",
+        "highlight": "0€"
+      }
+    },
+    "roi": {
+      "heading": "Y lo mejor de todo",
+      "description": {
+        "part1": "Con cerrar",
+        "highlight": "un solo encargo",
+        "part2": "al mes, ya rentabilizas el servicio.",
+        "part3": "Todo lo demás, es ganancia pura."
+      },
+      "metrics": {
+        "metric1": {
+          "value": "1",
+          "label": "Encargo = ROI"
+        },
+        "metric2": {
+          "value": "2+",
+          "label": "Ganancia pura"
+        },
+        "metric3": {
+          "value": "40",
+          "label": "Leads al mes"
+        }
+      }
+    },
+    "cta": {
+      "buttons": {
+        "demo": "Ver demo gratuita",
+        "advisor": "Hablar con asesor"
+      },
+      "benefits": {
+        "benefit1": "Sin compromiso",
+        "benefit2": "Respuesta en 24h",
+        "benefit3": "Demo personalizada"
       }
     }
-  }
+  },
+  "successCases": {
+    "title": {
+      "main": "Casos de exito",
+      "subtitle": "resultados reales"
+    },
+    "description": "Profesionales como tú que han transformado su negocio y multiplicado sus resultados",
+    "logosCarousel": {
+      "text": "Confían en nosotros más de 70 agencias inmobiliarias"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Cerramos 3 encargos el primer mes. Bestial.",
+        "author": "Carlos Mendoza",
+        "company": "Agencia NovaHabitat",
+        "location": "Madrid",
+        "stats": {
+          "encargos": "3",
+          "leads": "38",
+          "tiempo": "4"
+        }
+      },
+      "testimonial2": {
+        "quote": "Los leads que recibimos son de una calidad impresionante. Ya no perdemos tiempo con curiosos.",
+        "author": "Marina Silva",
+        "company": "Silva Propiedades",
+        "location": "Barcelona",
+        "stats": {
+          "encargos": "5",
+          "leads": "42",
+          "tiempo": "3"
+        }
+      },
+      "testimonial3": {
+        "quote": "En 6 meses hemos triplicado nuestra cartera de exclusivas. El ROI es increíble.",
+        "author": "Alejandro Torres",
+        "company": "Torres & Asociados",
+        "location": "Valencia",
+        "stats": {
+          "encargos": "8",
+          "leads": "45",
+          "tiempo": "2"
+        }
+      },
+      "testimonial4": {
+        "quote": "Llevábamos años buscando algo así. Ahora tenemos leads constantemente sin hacer publicidad nosotros.",
+        "author": "Isabel Ramírez",
+        "company": "Ramírez Inmobiliaria",
+        "location": "Sevilla",
+        "stats": {
+          "encargos": "4",
+          "leads": "36",
+          "tiempo": "5"
+        }
+      }
+    },
+    "statsLabels": {
+      "encargos": "Encargos cerrados",
+      "leads": "Leads mensuales",
+      "tiempo": "Tiempo ahorrado"
+    },
+    "verification": {
+      "rating": "5.0",
+      "verified": "Verificado"
+    },
+    "cta": {
+      "title": "¿Quieres ser el siguiente caso de éxito?",
+      "description": "Únete a +70 agencias que ya están multiplicando sus resultados",
+      "button": "Ver casos completos",
+      "benefits": {
+        "benefit1": "Casos verificados",
+        "benefit2": "Resultados reales",
+        "benefit3": "Sin compromiso"
+      }
+    }
+  }, 
+    "aboutFaqClosing": {
+      "title": {
+        "main": "Conocenos",
+        "subtitle": "y resuelve tus dudas"
+      },
+      "description": "Todo lo que necesitas saber sobre nosotros y nuestro servicio",
+      "logosCarousel": {
+        "text": "Confían en nosotros más de 70 agencias inmobiliarias"
+      },
+      "stats": {
+        "stat1": {
+          "value": "4+",
+          "label": "Años experiencia"
+        },
+        "stat2": {
+          "value": "20+",
+          "label": "Agencias activas"
+        },
+        "stat3": {
+          "value": "8k+",
+          "label": "Leads generados"
+        },
+        "stat4": {
+          "value": "94%",
+          "label": "Satisfacción"
+        }
+      },
+      "sections": {
+        "section1": {
+          "title": "Nuestra historia",
+          "subtitle": "Experiencia comprobada"
+        },
+        "section2": {
+          "title": "Preguntas frecuentes",
+          "subtitle": "Dudas resueltas"
+        },
+        "section3": {
+          "title": "Agenda tu reunión",
+          "subtitle": "Último paso"
+        }
+      },
+      "history": {
+        "title": "Nuestra historia",
+        "subtitle": "Experiencia comprobada",
+        "description": {
+          "part1": "Desde 2021 ayudamos a agencias inmobiliarias a captar propietarios interesados en vender. Hemos perfeccionado nuestro sistema en España.",
+          "part2": "Conocemos el sector y entendemos lo que cuesta conseguir un encargo. Por eso te acompañamos en todo el proceso."
+        },
+        "timeline": {
+          "event1": "Inicio en el mercado español",
+          "event2": "Más de 50 agencias confían en nosotros",
+          "event3": "Sistema perfeccionado y probado",
+          "event4": "Expansión a Portugal"
+        }
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "subtitle": "Dudas resueltas",
+        "questions": {
+          "question1": {
+            "question": "¿Hay permanencia?",
+            "answer": "No, trabajamos mes a mes. Puedes cancelar cuando quieras sin penalizaciones."
+          },
+          "question2": {
+            "question": "¿Qué tipo de leads recibo?",
+            "answer": "Propietarios con intención real de vender, filtrados a través de nuestro sistema de IA predictiva."
+          },
+          "question3": {
+            "question": "¿Cuándo empiezo a recibir contactos?",
+            "answer": "En menos de 7 días tras definir tu zona y configurar las campañas personalizadas."
+          },
+          "question4": {
+            "question": "¿Qué zonas están disponibles?",
+            "answer": "Trabajamos en las principales ciudades de España y Portugal con disponibilidad limitada."
+          },
+          "question5": {
+            "question": "¿Incluye soporte y acompañamiento?",
+            "answer": "Sí, incluye guión de contacto profesional, grupo de WhatsApp exclusivo y revisión mensual personalizada."
+          }
+        }
+      },
+      "contact": {
+        "title": "Agenda tu reunión",
+        "subtitle": "Último paso",
+        "description": {
+          "part1": "En",
+          "highlight": "15 minutos",
+          "part2": "te mostramos cómo funcionamos y si",
+          "part3": "tu zona está libre."
+        },
+        "benefits": {
+          "benefit1": {
+            "title": "Análisis personalizado",
+            "description": "Revisamos tu zona específica"
+          },
+          "benefit2": {
+            "title": "Demo en vivo",
+            "description": "Sistema funcionando en tiempo real"
+          },
+          "benefit3": {
+            "title": "Sin compromiso",
+            "description": "Solo información, sin presión"
+          }
+        },
+        "cta": {
+          "title": "¡Hablemos!",
+          "subtitle": "Respuesta en menos de 2 horas",
+          "features": {
+            "feature1": "100% Gratuito",
+            "feature2": "15 minutos",
+            "feature3": "Sin compromiso"
+          }
+        }
+      },
+      "finalCta": {
+        "title": "¿Tienes más preguntas?",
+        "description": "Hablemos y te contamos todo lo que necesitas saber",
+        "button": "Hablar con un asesor",
+        "benefits": {
+          "benefit1": "100% Gratuito",
+          "benefit2": "Solo 15 minutos",
+          "benefit3": "Sin compromiso"
+        }
+      }
+    } ,
+      "clientesPage": {
+        "badge": "Bienvenido al sistema",
+        "hero": {
+          "title": "Ya formas parte del sistema",
+          "subtitle": "Prepárate para conseguir leads de calidad en tu zona"
+        },
+        "intro": {
+          "text1": "Si has llegado hasta aquí es porque ya formas parte del sistema. Probablemente llevabas tiempo buscando una forma eficaz de conseguir contactos de propietarios que:",
+          "features": {
+            "feature1": "Estén en tu zona",
+            "feature2": "Estén pensando en vender", 
+            "feature3": "Que solo tú puedas contactar"
+          },
+          "text2": "Si eso es lo que buscabas, has tomado una gran decisión. Y no estarás solo: somos un equipo profesional, transparente y vamos a estar contigo todo el mes para ayudarte a cumplir tus objetivos de captación."
+        },
+        "steps": {
+          "step1": {
+            "title": "Antes de empezar, hay dos preguntas clave:",
+            "question1": {
+              "title": "Como conseguimos los leads?",
+              "text1": "Usamos campañas segmentadas en Meta (Facebook + Instagram) y Google Ads para llegar a personas que están valorando vender su vivienda. Creamos anuncios que generan interés real y los llevamos a formularios donde les pedimos datos clave: zona, tipo de inmueble, motivo de venta...",
+              "text2": "Este paso nos permite descartar a los curiosos y centrarnos en propietarios que sí están dispuestos a hablar. No es un sistema perfecto —como en cualquier captación online puede colarse algún lead no deseado— pero no es lo habitual.",
+              "tip": "Además, antes de lanzar tu campaña, te compartimos una descripción del tipo de anuncio que usaremos, para que sepas qué ha visto el propietario cuando te llame o le llames tú. Esto te ayudará a orientar la conversación y no entrar a ciegas."
+            },
+            "question2": {
+              "title": "Que resultados puedes esperar?",
+              "stats": {
+                "leads": "40",
+                "leadsLabel": "Leads exclusivos/mes",
+                "conversion": "1/9", 
+                "conversionLabel": "Ratio de conversión",
+                "time": "24-48h",
+                "timeLabel": "Primeros resultados"
+              },
+              "text1": "Garantizamos hasta 40 leads exclusivos al mes. De media, 1 de cada 9 leads se convierte en captación. El éxito depende en gran parte de cómo se gestiona el primer contacto, por eso te damos:",
+              "benefits": {
+                "benefit1": "Un guión orientativo para llamadas (adaptable a tu estilo)",
+                "benefit2": "Acceso a nuestro equipo para dudas sobre cómo contactar a cada lead",
+                "benefit3": "Seguimiento quincenal para afinar la campaña según resultados"
+              },
+              "text2": "Ten en cuenta que algunas captaciones no se cierran en el momento. Hay propietarios que necesitan resolver herencias, documentación o simplemente tiempo para decidir. Por eso muchas veces lo que trabajas el mes 1, te trae resultados en el 2 o 3."
+            }
+          },
+          "timeline": {
+            "title": "Cuando empiezas a ver leads?",
+            "text": "Normalmente en 24-48h desde el lanzamiento de campaña ya empiezan a entrar. En algunos casos puede tardar un poco más (hasta 4-5 días), pero es poco frecuente. Lo importante: el volumen mensual siempre se cumple."
+          },
+          "summary": {
+            "title": "En resumen:",
+            "text": "Este es un sistema que funciona si tú también lo haces funcionar. Nosotros te conseguimos los contactos, te damos el contexto y te acompañamos. Tú los llamas, los trabajas, y con constancia, las captaciones llegan.",
+            "welcome": "Bienvenido a Horizzon",
+            "slogan": "Vamos a por esos encargos"
+          },
+          "step2": {
+            "title": "Cierra reunion via Calendly para el onboarding",
+            "cta": {
+              "title": "Ultimo paso para empezar!",
+              "description": "Programa tu reunión de onboarding para configurar tu campaña y empezar a recibir leads en 24-48h.",
+              "button": "Reservar mi reunión de onboarding"
+            }
+          }
+        }
+      }
+    }
+  

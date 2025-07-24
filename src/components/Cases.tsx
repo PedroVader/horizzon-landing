@@ -80,7 +80,6 @@ const SuccessCases = () => {
           ))}
         </div>
 
-        {/* Impact summary */}
         <div className="mt-24 text-center">
           <h4 className="text-3xl font-bold text-[#222952] mb-4">¿Qué tienen en común?</h4>
           <p className="text-lg text-[#6D7FBE] mb-8">

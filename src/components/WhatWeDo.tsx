@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Target, Search, Users, Filter, Sparkles, ArrowRight, Zap } from 'lucide-react';
+import { useTranslation } from '../context/TranslationContext';
 
 const WhatWeDo = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeProcess, setActiveProcess] = useState(0);
   const statsRef = useRef(null);
   const [statsVisible, setStatsVisible] = useState(false);
+
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -72,38 +76,55 @@ const WhatWeDo = () => {
     );
   };
 
+  // Steps del proceso con traducciones
   const processSteps = [
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Definimos",
-      subtitle: "tu zona objetivo",
-      description: "Analizamos tu mercado local para maximizar oportunidades",
+      title: t('whatWeDo.process.step1.title'),
+      subtitle: t('whatWeDo.process.step1.subtitle'),
+      description: t('whatWeDo.process.step1.description'),
       color: "from-[#222952] to-[#6D7FBE]",
-      stats: { value: "72", suffix: "h", label: "configuración rápida" }
+      stats: { 
+        value: t('whatWeDo.process.step1.stats.value'), 
+        suffix: t('whatWeDo.process.step1.stats.suffix'), 
+        label: t('whatWeDo.process.step1.stats.label') 
+      }
     },
     {
       icon: <Search className="w-8 h-8" />,
-      title: "Lanzamos",
-      subtitle: "campañas dirigidas",
-      description: "Meta y Google Ads optimizadas para propietarios",
+      title: t('whatWeDo.process.step2.title'),
+      subtitle: t('whatWeDo.process.step2.subtitle'),
+      description: t('whatWeDo.process.step2.description'),
       color: "from-[#6D7FBE] to-[#222952]",
-      stats: { value: "10", suffix: "+", label: "inmobiliarias activas" }
+      stats: { 
+        value: t('whatWeDo.process.step2.stats.value'), 
+        suffix: t('whatWeDo.process.step2.stats.suffix'), 
+        label: t('whatWeDo.process.step2.stats.label') 
+      }
     },
     {
       icon: <Filter className="w-8 h-8" />,
-      title: "Filtramos",
-      subtitle: "los contactos",
-      description: "Solo leads cualificados con intención real",
+      title: t('whatWeDo.process.step3.title'),
+      subtitle: t('whatWeDo.process.step3.subtitle'),
+      description: t('whatWeDo.process.step3.description'),
       color: "from-[#222952] via-[#6D7FBE] to-[#222952]",
-      stats: { value: "95", suffix: "%", label: "de precisión" }
+      stats: { 
+        value: t('whatWeDo.process.step3.stats.value'), 
+        suffix: t('whatWeDo.process.step3.stats.suffix'), 
+        label: t('whatWeDo.process.step3.stats.label') 
+      }
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Entregamos",
-      subtitle: "leads listos",
-      description: "Contactos verificados directo a tu CRM",
+      title: t('whatWeDo.process.step4.title'),
+      subtitle: t('whatWeDo.process.step4.subtitle'),
+      description: t('whatWeDo.process.step4.description'),
       color: "from-[#6D7FBE] via-[#222952] to-[#6D7FBE]",
-      stats: { value: "40", suffix: "+", label: "leads mensuales" }
+      stats: { 
+        value: t('whatWeDo.process.step4.stats.value'), 
+        suffix: t('whatWeDo.process.step4.stats.suffix'), 
+        label: t('whatWeDo.process.step4.stats.label') 
+      }
     }
   ];
 
@@ -125,16 +146,16 @@ const WhatWeDo = () => {
           <div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center gap-2 mb-8">
               <span className="text-sm font-semibold tracking-wider uppercase text-[#6D7FBE] font-playfair italic">
-                Nuestro proceso
+                {t('whatWeDo.subtitle')}
               </span>
             </div>
             
             <h2 className="text-5xl md:text-7xl font-bold text-[#222952] mb-6">
-              Que hacemos?
+              {t('whatWeDo.title')}
             </h2>
             
             <p className="text-xl text-[#222952]/70 font-light max-w-3xl mx-auto">
-              Sistema automatizado para generar leads cualificados de propietarios vendedores
+              {t('whatWeDo.description')}
             </p>
           </div>
 
@@ -211,7 +232,7 @@ const WhatWeDo = () => {
           <div ref={statsRef} className="mb-32">
             <div className="text-center mb-16">
               <h3 className="text-3xl font-bold text-[#222952] mb-4">
-                Resultados que importan
+                {t('whatWeDo.results.title')}
               </h3>
               <div className="w-20 h-1 bg-gradient-to-r from-[#6D7FBE] to-[#222952] mx-auto rounded-full"></div>
             </div>
@@ -237,7 +258,7 @@ const WhatWeDo = () => {
           {/* CTA minimalista profesional */}
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-[#222952] text-white rounded-full hover:bg-[#6D7FBE] transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl">
-              <span className="font-semibold">Empezar ahora</span>
+              <span className="font-semibold">{t('whatWeDo.cta.button')}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </div>
           </div>

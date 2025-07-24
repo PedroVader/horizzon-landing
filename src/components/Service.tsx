@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Users, Target, MessageCircle, Shield, Calendar, Phone, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { useTranslation } from '../context/TranslationContext';
 
 const ServiceIncludes = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const roiRef = useRef(null);
   const [roiVisible, setRoiVisible] = useState(false);
+
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -23,45 +27,56 @@ const ServiceIncludes = () => {
     };
   }, []);
 
+  // Features con traducciones
   const features = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: "+ 40 leads exclusivos",
-      subtitle: "cada mes",
-      description: "Adaptados a tu zona y tipo de cliente ideal",
+      title: t('serviceIncludes.features.feature1.title'),
+      subtitle: t('serviceIncludes.features.feature1.subtitle'),
+      description: t('serviceIncludes.features.feature1.description'),
       color: "from-blue-500 to-indigo-600",
-      highlight: "40"
+      highlight: t('serviceIncludes.features.feature1.highlight')
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Campañas activas",
-      subtitle: "Meta + Google",
-      description: "Gestionadas por expertos en captación inmobiliaria",
+      title: t('serviceIncludes.features.feature2.title'),
+      subtitle: t('serviceIncludes.features.feature2.subtitle'),
+      description: t('serviceIncludes.features.feature2.description'),
       color: "from-purple-500 to-pink-600",
-      highlight: "24/7"
+      highlight: t('serviceIncludes.features.feature2.highlight')
     },
     {
       icon: <MessageCircle className="w-8 h-8" />,
-      title: "Acompañamiento",
-      subtitle: "personalizado",
-      description: "Guión, grupo WhatsApp y revisión mensual",
+      title: t('serviceIncludes.features.feature3.title'),
+      subtitle: t('serviceIncludes.features.feature3.subtitle'),
+      description: t('serviceIncludes.features.feature3.description'),
       color: "from-green-500 to-teal-600",
-      highlight: "1:1"
+      highlight: t('serviceIncludes.features.feature3.highlight')
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Sin compromiso",
-      subtitle: "de permanencia",
-      description: "Trabajamos mes a mes, solo si estás satisfecho",
+      title: t('serviceIncludes.features.feature4.title'),
+      subtitle: t('serviceIncludes.features.feature4.subtitle'),
+      description: t('serviceIncludes.features.feature4.description'),
       color: "from-orange-500 to-red-600",
-      highlight: "0€"
+      highlight: t('serviceIncludes.features.feature4.highlight')
     }
   ];
 
+  // ROI Metrics con traducciones
   const roiMetrics = [
-    { value: "1", label: "Encargo = ROI" },
-    { value: "2+", label: "Ganancia pura" },
-    { value: "40", label: "Leads al mes" }
+    { 
+      value: t('serviceIncludes.roi.metrics.metric1.value'), 
+      label: t('serviceIncludes.roi.metrics.metric1.label') 
+    },
+    { 
+      value: t('serviceIncludes.roi.metrics.metric2.value'), 
+      label: t('serviceIncludes.roi.metrics.metric2.label') 
+    },
+    { 
+      value: t('serviceIncludes.roi.metrics.metric3.value'), 
+      label: t('serviceIncludes.roi.metrics.metric3.label') 
+    }
   ];
 
   return (
@@ -80,15 +95,17 @@ const ServiceIncludes = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <span className="text-sm font-semibold uppercase text-[#6D7FBE] tracking-wider font-playfair italic">Todo incluido</span>
+            <span className="text-sm font-semibold uppercase text-[#6D7FBE] tracking-wider font-playfair italic">
+              {t('serviceIncludes.subtitle')}
+            </span>
             <h2 className="text-5xl md:text-7xl font-bold text-[#222952] mt-4">
-              Un canal extra de
+              {t('serviceIncludes.title.main')}
               <span className="block text-4xl md:text-6xl bg-gradient-to-r from-[#6D7FBE] to-[#222952] bg-clip-text text-transparent mt-2">
-                captacion automatica
+                {t('serviceIncludes.title.highlight')}
               </span>
             </h2>
             <p className="text-xl text-[#222952]/70 font-light max-w-3xl mx-auto mt-6">
-              Todo lo que necesitas para generar leads de calidad sin esfuerzo
+              {t('serviceIncludes.description')}
             </p>
           </div>
 
@@ -124,11 +141,13 @@ const ServiceIncludes = () => {
               
               <div className="relative z-10">
                 <Sparkles className="w-10 h-10 text-[#6D7FBE] mx-auto mb-6" />
-                <h3 className="text-3xl font-bold text-[#222952] mb-4 font-playfair italic">Y lo mejor de todo</h3>
+                <h3 className="text-3xl font-bold text-[#222952] mb-4 font-playfair italic">
+                  {t('serviceIncludes.roi.heading')}
+                </h3>
                 <p className="text-2xl text-[#222952]/80 max-w-2xl mx-auto mb-10">
-                  Con cerrar <span className="text-[#6D7FBE] font-bold font-playfair italic">un solo encargo</span> al mes, ya rentabilizas el servicio.
+                  {t('serviceIncludes.roi.description.part1')} <span className="text-[#6D7FBE] font-bold font-playfair italic">{t('serviceIncludes.roi.description.highlight')}</span> {t('serviceIncludes.roi.description.part2')}
                   <br />
-                  <span className="text-[#222952] font-semibold mt-2 block font-playfair italic">Todo lo demás, es ganancia pura.</span>
+                  <span className="text-[#222952] font-semibold mt-2 block font-playfair italic">{t('serviceIncludes.roi.description.part3')}</span>
                 </p>
                 <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
                   {roiMetrics.map((m, i) => (
@@ -147,26 +166,26 @@ const ServiceIncludes = () => {
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
               <button className="group bg-gradient-to-r from-[#6D7FBE] to-[#222952] text-white px-10 py-5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 transform hover:scale-105">
                 <Calendar className="w-5 h-5" />
-                Ver demo gratuita
+                {t('serviceIncludes.cta.buttons.demo')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="group bg-white text-[#222952] px-10 py-5 rounded-full font-semibold border-2 border-[#6D7FBE] transition-all duration-300 flex items-center gap-3 transform hover:scale-105">
                 <Phone className="w-5 h-5" />
-                Hablar con asesor
+                {t('serviceIncludes.cta.buttons.advisor')}
               </button>
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-[#222952]/70">
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-green-500" />
-                Sin compromiso
+                {t('serviceIncludes.cta.benefits.benefit1')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-green-500" />
-                Respuesta en 24h
+                {t('serviceIncludes.cta.benefits.benefit2')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-green-500" />
-                Demo personalizada
+                {t('serviceIncludes.cta.benefits.benefit3')}
               </span>
             </div>
           </div>

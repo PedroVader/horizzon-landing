@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, MapPin, Award, ArrowRight, Building2, CheckCircle, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from '../context/TranslationContext';
 
 const LogosCarousel = ({ isVisible }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   const companies = [
     'NovaHabitat', 'Silva Propiedades', 'Torres & Asociados', 
@@ -35,7 +39,7 @@ const LogosCarousel = ({ isVisible }) => {
     <div className={`relative mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
       <div className="text-center">
         <p className="text-[#6D7FBE] mb-8 font-medium">
-          Confían en nosotros más de 70 agencias inmobiliarias
+          {t('successCases.logosCarousel.text')}
         </p>
         
         <div 
@@ -104,52 +108,65 @@ const LogosCarousel = ({ isVisible }) => {
 const SuccessCases = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
+  // Testimonials con traducciones
   const testimonials = [
     {
       id: 1,
-      quote: "Cerramos 3 encargos el primer mes. Bestial.",
-      author: "Carlos Mendoza",
-      company: "Agencia NovaHabitat",
-      location: "Madrid",
-      stats: { encargos: 3, leads: 38, tiempo: 4 }
+      quote: t('successCases.testimonials.testimonial1.quote'),
+      author: t('successCases.testimonials.testimonial1.author'),
+      company: t('successCases.testimonials.testimonial1.company'),
+      location: t('successCases.testimonials.testimonial1.location'),
+      stats: { 
+        encargos: t('successCases.testimonials.testimonial1.stats.encargos'), 
+        leads: t('successCases.testimonials.testimonial1.stats.leads'), 
+        tiempo: t('successCases.testimonials.testimonial1.stats.tiempo') 
+      }
     },
     {
       id: 2,
-      quote: "Los leads que recibimos son de una calidad impresionante. Ya no perdemos tiempo con curiosos.",
-      author: "Marina Silva",
-      company: "Silva Propiedades",
-      location: "Barcelona",
-      stats: { encargos: 5, leads: 42, tiempo: 3 }
+      quote: t('successCases.testimonials.testimonial2.quote'),
+      author: t('successCases.testimonials.testimonial2.author'),
+      company: t('successCases.testimonials.testimonial2.company'),
+      location: t('successCases.testimonials.testimonial2.location'),
+      stats: { 
+        encargos: t('successCases.testimonials.testimonial2.stats.encargos'), 
+        leads: t('successCases.testimonials.testimonial2.stats.leads'), 
+        tiempo: t('successCases.testimonials.testimonial2.stats.tiempo') 
+      }
     },
     {
       id: 3,
-      quote: "En 6 meses hemos triplicado nuestra cartera de exclusivas. El ROI es increíble.",
-      author: "Alejandro Torres",
-      company: "Torres & Asociados",
-      location: "Valencia",
-      stats: { encargos: 8, leads: 45, tiempo: 2 }
+      quote: t('successCases.testimonials.testimonial3.quote'),
+      author: t('successCases.testimonials.testimonial3.author'),
+      company: t('successCases.testimonials.testimonial3.company'),
+      location: t('successCases.testimonials.testimonial3.location'),
+      stats: { 
+        encargos: t('successCases.testimonials.testimonial3.stats.encargos'), 
+        leads: t('successCases.testimonials.testimonial3.stats.leads'), 
+        tiempo: t('successCases.testimonials.testimonial3.stats.tiempo') 
+      }
     },
     {
       id: 4,
-      quote: "Llevábamos años buscando algo así. Ahora tenemos leads constantemente sin hacer publicidad nosotros.",
-      author: "Isabel Ramírez",
-      company: "Ramírez Inmobiliaria",
-      location: "Sevilla",
-      stats: { encargos: 4, leads: 36, tiempo: 5 }
+      quote: t('successCases.testimonials.testimonial4.quote'),
+      author: t('successCases.testimonials.testimonial4.author'),
+      company: t('successCases.testimonials.testimonial4.company'),
+      location: t('successCases.testimonials.testimonial4.location'),
+      stats: { 
+        encargos: t('successCases.testimonials.testimonial4.stats.encargos'), 
+        leads: t('successCases.testimonials.testimonial4.stats.leads'), 
+        tiempo: t('successCases.testimonials.testimonial4.stats.tiempo') 
+      }
     }
-  ];
-
-  const metrics = [
-    { value: "94%", label: "Satisfacción" },
-    { value: "3.8x", label: "ROI promedio" },
-    { value: "40+", label: "Leads/mes" },
-    { value: "<30", label: "Días primer encargo" }
   ];
 
   useEffect(() => {
@@ -157,7 +174,7 @@ const SuccessCases = () => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <>
@@ -176,14 +193,14 @@ const SuccessCases = () => {
             </div>
             
             <h2 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-[#222952]">Casos de exito</span>
+              <span className="text-[#222952]">{t('successCases.title.main')}</span>
               <span className="block text-3xl md:text-4xl font-light text-[#6D7FBE] mt-2">
-                resultados reales
+                {t('successCases.title.subtitle')}
               </span>
             </h2>
             
             <p className="text-xl text-[#222952] max-w-3xl mx-auto leading-relaxed">
-              Profesionales como tú que han transformado su negocio y multiplicado sus resultados
+              {t('successCases.description')}
             </p>
           </div>
 
@@ -232,8 +249,8 @@ const SuccessCases = () => {
                         <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[#222952] font-medium">5.0</span>
-                    <span className="text-[#6D7FBE] text-sm">• Verificado</span>
+                    <span className="text-[#222952] font-medium">{t('successCases.verification.rating')}</span>
+                    <span className="text-[#6D7FBE] text-sm">• {t('successCases.verification.verified')}</span>
                   </div>
                 </div>
                 
@@ -244,7 +261,7 @@ const SuccessCases = () => {
                       {testimonials[activeTestimonial].stats.encargos}
                     </div>
                     <div className="text-[#6D7FBE] text-sm">
-                      Encargos cerrados
+                      {t('successCases.statsLabels.encargos')}
                     </div>
                   </div>
                   
@@ -253,7 +270,7 @@ const SuccessCases = () => {
                       {testimonials[activeTestimonial].stats.leads}
                     </div>
                     <div className="text-[#6D7FBE] text-sm">
-                      Leads mensuales
+                      {t('successCases.statsLabels.leads')}
                     </div>
                   </div>
                   
@@ -262,7 +279,7 @@ const SuccessCases = () => {
                       {testimonials[activeTestimonial].stats.tiempo}h
                     </div>
                     <div className="text-[#6D7FBE] text-sm">
-                      Tiempo ahorrado
+                      {t('successCases.statsLabels.tiempo')}
                     </div>
                   </div>
                 </div>
@@ -276,30 +293,30 @@ const SuccessCases = () => {
           {/* CTA final */}
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
             <h3 className="text-3xl font-bold text-[#222952] mb-4">
-              ¿Quieres ser el siguiente caso de éxito?
+              {t('successCases.cta.title')}
             </h3>
             <p className="text-[#6D7FBE] mb-8 max-w-xl mx-auto font-playfair italic">
-              Únete a +70 agencias que ya están multiplicando sus resultados
+              {t('successCases.cta.description')}
             </p>
             
             <button className="group bg-[#222952] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto">
               <Play className="w-5 h-5" />
-              Ver casos completos
+              {t('successCases.cta.button')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
             <div className="flex items-center justify-center gap-6 mt-6 text-sm text-[#6D7FBE]">
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                Casos verificados
+                {t('successCases.cta.benefits.benefit1')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                Resultados reales
+                {t('successCases.cta.benefits.benefit2')}
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                Sin compromiso
+                {t('successCases.cta.benefits.benefit3')}
               </span>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle, Filter, Sparkles, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from '../context/TranslationContext';
 
 const RealLeads = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,6 +8,9 @@ const RealLeads = () => {
   const [isPaused, setIsPaused] = useState(false);
   const statsRef = useRef(null);
   const [statsVisible, setStatsVisible] = useState(false);
+
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -47,17 +51,46 @@ const RealLeads = () => {
     return <span>{prefix}{displayValue}{suffix}</span>;
   };
 
+  // Features con traducciones
   const features = [
-    { icon: <Filter className="w-8 h-8" />, title: 'Formularios inteligentes', text: 'Verifican el interés real de cada propietario' },
-    { icon: <CheckCircle className="w-8 h-8" />, title: 'Preguntas clave', text: 'Descartan perfiles débiles automáticamente' },
-    { icon: <Sparkles className="w-8 h-8" />, title: 'Segmentación precisa', text: 'Por zona geográfica y tipo de inmueble' },
-    { icon: <ArrowRight className="w-8 h-8" />, title: 'Máxima efectividad', text: 'Eliminamos leads no cualificados' }
+    { 
+      icon: <Filter className="w-8 h-8" />, 
+      title: t('realLeads.features.feature1.title'), 
+      text: t('realLeads.features.feature1.text') 
+    },
+    { 
+      icon: <CheckCircle className="w-8 h-8" />, 
+      title: t('realLeads.features.feature2.title'), 
+      text: t('realLeads.features.feature2.text') 
+    },
+    { 
+      icon: <Sparkles className="w-8 h-8" />, 
+      title: t('realLeads.features.feature3.title'), 
+      text: t('realLeads.features.feature3.text') 
+    },
+    { 
+      icon: <ArrowRight className="w-8 h-8" />, 
+      title: t('realLeads.features.feature4.title'), 
+      text: t('realLeads.features.feature4.text') 
+    }
   ];
 
   const stats = [
-    { number: '3', suffix: 'x', label: 'Mayor conversión' },
-    { number: '85', suffix: '%', label: 'Contacto exitoso' },
-    { number: '60', suffix: '%', label: 'Tiempo ahorrado' }
+    { 
+      number: t('realLeads.stats.stat1.number'), 
+      suffix: t('realLeads.stats.stat1.suffix'), 
+      label: t('realLeads.stats.stat1.label') 
+    },
+    { 
+      number: t('realLeads.stats.stat2.number'), 
+      suffix: t('realLeads.stats.stat2.suffix'), 
+      label: t('realLeads.stats.stat2.label') 
+    },
+    { 
+      number: t('realLeads.stats.stat3.number'), 
+      suffix: t('realLeads.stats.stat3.suffix'), 
+      label: t('realLeads.stats.stat3.label') 
+    }
   ];
 
   // Carousel logic
@@ -100,10 +133,10 @@ const RealLeads = () => {
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <h2 className="text-5xl md:text-7xl font-bold text-[#222952] mb-4">
-              Leads <span className="bg-gradient-to-r from-[#222952] to-[#EBF0CB] bg-clip-text text-transparent">verificados</span> que convierten
+              {t('realLeads.title.main')} <span className="bg-gradient-to-r from-[#222952] to-[#EBF0CB] bg-clip-text text-transparent">{t('realLeads.title.highlight')}</span> {t('realLeads.title.ending')}
             </h2>
             <p className="text-xl text-[#222952]/70 max-w-xl mx-auto">
-              Solo propietarios con intención real de vender
+              {t('realLeads.subtitle')}
             </p>
           </div>
 
@@ -118,7 +151,6 @@ const RealLeads = () => {
             ))}
           </div>
 
-          {/* Carousel Section con bordes de destello */}
           <div 
             className={`mb-20 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             onMouseEnter={() => setIsPaused(true)}
@@ -157,7 +189,6 @@ const RealLeads = () => {
                 </div>
               </div>
 
-              {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-[#6D7FBE] hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 shadow-lg"
@@ -173,7 +204,6 @@ const RealLeads = () => {
               </button>
             </div>
 
-            {/* Dots Indicator */}
             <div className="flex justify-center gap-2 mt-8">
               {Array.from({ length: totalSlides }, (_, index) => (
                 <button
@@ -192,27 +222,27 @@ const RealLeads = () => {
           <div className="grid lg:grid-cols-2 gap-12 mb-20 items-center">
             <div>
               <h3 className="text-4xl font-bold text-[#222952] mb-6">
-                Oportunidades listas para cerrar
+                {t('realLeads.opportunities.title')}
               </h3>
               <p className="text-xl text-[#222952]/70 mb-8">
-                Leads más abiertos a hablar y con más probabilidades de encargo exclusivo.
+                {t('realLeads.opportunities.description')}
               </p>
               <ul className="space-y-4 text-[#222952]/80 text-lg mb-8 font-playfair italic">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
-                  Propietarios verificados
+                  {t('realLeads.opportunities.benefits.benefit1')}
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
-                  Datos actualizados
+                  {t('realLeads.opportunities.benefits.benefit2')}
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-[#6D7FBE] flex-shrink-0" />
-                  Listos para contactar
+                  {t('realLeads.opportunities.benefits.benefit3')}
                 </li>
               </ul>
               <button className="inline-flex items-center gap-3 px-8 py-4 bg-[#222952] text-white text-lg rounded-full hover:bg-[#6D7FBE] transition-all duration-300 transform hover:scale-105">
-                Ver casos de éxito
+                {t('realLeads.opportunities.cta')}
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -224,7 +254,7 @@ const RealLeads = () => {
               <div className="relative z-10">
                 <Sparkles className="w-12 h-12 text-[#6D7FBE] mx-auto mb-6" />
                 <p className="text-xl text-[#222952]/70 leading-relaxed">
-                  Los agentes ahorran <span className="font-bold text-[#6D7FBE]">4h</span> semanales y aumentan <span className="font-bold text-[#222952]">40%</span> su tasa de cierre
+                  {t('realLeads.testimonial.text')} <span className="font-bold text-[#6D7FBE]">{t('realLeads.testimonial.time')}</span> {t('realLeads.testimonial.timeLabel')} <span className="font-bold text-[#222952]">{t('realLeads.testimonial.percentage')}</span> {t('realLeads.testimonial.ending')}
                 </p>
               </div>
             </div>
@@ -235,7 +265,7 @@ const RealLeads = () => {
       {/* Transition section */}
       <div className="h-12 bg-white"></div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes shimmer {
           0% {
             transform: translateX(-100%);

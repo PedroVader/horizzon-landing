@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Award, Clock, MapPin, Calendar, Phone, ChevronDown, CheckCircle, Zap, ArrowRight, Target, Shield, MessageCircle, Layers, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '../context/TranslationContext';
 
 const LogosCarousel = ({ isVisible }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
+  // Hook de traducciones
+  const { t } = useTranslation();
 
   const companies = [
     { name: 'Remax', logo: '/logos/novahabitat.png' },
@@ -42,7 +46,7 @@ const LogosCarousel = ({ isVisible }) => {
     <div className={`relative mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
       <div className="text-center">
         <p className="text-white/80 mb-8 font-medium">
-          Confían en nosotros más de 70 agencias inmobiliarias
+          {t('aboutFaqClosing.logosCarousel.text')}
         </p>
         
         <div 
@@ -50,7 +54,6 @@ const LogosCarousel = ({ isVisible }) => {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Carousel Container */}
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
@@ -65,7 +68,7 @@ const LogosCarousel = ({ isVisible }) => {
                         className="flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 transform hover:scale-105 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20"
                       >
                         <Building2 className="w-5 h-5" />
-                        <span className="text-sm font-medium whitespace-nowrap">{company}</span>
+                        <span className="text-sm font-medium whitespace-nowrap">{company.name}</span>
                       </div>
                     ))}
                   </div>
@@ -114,106 +117,125 @@ const AboutFaqClosing = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
 
+  // Hook de traducciones
+  const { t } = useTranslation();
+
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
+  // Sections con traducciones
   const sections = [
     {
       id: "historia",
-      title: "Nuestra historia",
-      subtitle: "Experiencia comprobada",
+      title: t('aboutFaqClosing.sections.section1.title'),
+      subtitle: t('aboutFaqClosing.sections.section1.subtitle'),
       icon: <Users className="w-6 h-6" />
     },
     {
       id: "faq",
-      title: "Preguntas frecuentes",
-      subtitle: "Dudas resueltas",
+      title: t('aboutFaqClosing.sections.section2.title'),
+      subtitle: t('aboutFaqClosing.sections.section2.subtitle'),
       icon: <MessageCircle className="w-6 h-6" />
     },
     {
       id: "contacto",
-      title: "Agenda tu reunión",
-      subtitle: "Último paso",
+      title: t('aboutFaqClosing.sections.section3.title'),
+      subtitle: t('aboutFaqClosing.sections.section3.subtitle'),
       icon: <Calendar className="w-6 h-6" />
     }
   ];
 
+  // Stats con traducciones
   const stats = [
-    { value: "4+", label: "Años experiencia" },
-    { value: "20+", label: "Agencias activas" },
-    { value: "8k+", label: "Leads generados" },
-    { value: "94%", label: "Satisfacción" }
+    { 
+      value: t('aboutFaqClosing.stats.stat1.value'), 
+      label: t('aboutFaqClosing.stats.stat1.label') 
+    },
+    { 
+      value: t('aboutFaqClosing.stats.stat2.value'), 
+      label: t('aboutFaqClosing.stats.stat2.label') 
+    },
+    { 
+      value: t('aboutFaqClosing.stats.stat3.value'), 
+      label: t('aboutFaqClosing.stats.stat3.label') 
+    },
+    { 
+      value: t('aboutFaqClosing.stats.stat4.value'), 
+      label: t('aboutFaqClosing.stats.stat4.label') 
+    }
   ];
 
+  // Timeline con traducciones
   const timeline = [
     {
       year: "2021",
-      event: "Inicio en el mercado español",
-      img: "/public/images/PNG/españa-bander.png"
+      event: t('aboutFaqClosing.history.timeline.event1'),
+      img: "/images/PNG/bandera-españa.webp"
     },
     {
       year: "2022",
-      event: "Más de 50 agencias confían en nosotros",
-      img: "/public/images/PNG/century-21.jpg"
+      event: t('aboutFaqClosing.history.timeline.event2'),
+      img: "/images/PNG/century-21.jpg"
     },
     {
       year: "2023",
-      event: "Sistema perfeccionado y probado",
-      img: "/public/images/PNG/workflow-n8n.webp"
+      event: t('aboutFaqClosing.history.timeline.event3'),
+      img: "/images/PNG/workflow-n8n.webp"
     },
     {
       year: "2024",
-      event: "Expansión a Portugal",
-      img: "/public/images/PNG/bandera-portugal.jpg"
+      event: t('aboutFaqClosing.history.timeline.event4'),
+      img: "/images/PNG/bandera-portugal.jpg"
     }
   ];
-  
 
+  // FAQs con traducciones
   const faqs = [
     {
-      question: "¿Hay permanencia?",
-      answer: "No, trabajamos mes a mes. Puedes cancelar cuando quieras sin penalizaciones.",
+      question: t('aboutFaqClosing.faq.questions.question1.question'),
+      answer: t('aboutFaqClosing.faq.questions.question1.answer'),
       icon: <Shield className="w-5 h-5" />
     },
     {
-      question: "¿Qué tipo de leads recibo?",
-      answer: "Propietarios con intención real de vender, filtrados a través de nuestro sistema de IA predictiva.",
+      question: t('aboutFaqClosing.faq.questions.question2.question'),
+      answer: t('aboutFaqClosing.faq.questions.question2.answer'),
       icon: <Target className="w-5 h-5" />
     },
     {
-      question: "¿Cuándo empiezo a recibir contactos?",
-      answer: "En menos de 7 días tras definir tu zona y configurar las campañas personalizadas.",
+      question: t('aboutFaqClosing.faq.questions.question3.question'),
+      answer: t('aboutFaqClosing.faq.questions.question3.answer'),
       icon: <Clock className="w-5 h-5" />
     },
     {
-      question: "¿Qué zonas están disponibles?",
-      answer: "Trabajamos en las principales ciudades de España y Portugal con disponibilidad limitada.",
+      question: t('aboutFaqClosing.faq.questions.question4.question'),
+      answer: t('aboutFaqClosing.faq.questions.question4.answer'),
       icon: <MapPin className="w-5 h-5" />
     },
     {
-      question: "¿Incluye soporte y acompañamiento?",
-      answer: "Sí, incluye guión de contacto profesional, grupo de WhatsApp exclusivo y revisión mensual personalizada.",
+      question: t('aboutFaqClosing.faq.questions.question5.question'),
+      answer: t('aboutFaqClosing.faq.questions.question5.answer'),
       icon: <MessageCircle className="w-5 h-5" />
     }
   ];
 
+  // Benefits con traducciones
   const benefits = [
     {
       icon: <Target className="w-6 h-6" />,
-      title: "Análisis personalizado",
-      description: "Revisamos tu zona específica"
+      title: t('aboutFaqClosing.contact.benefits.benefit1.title'),
+      description: t('aboutFaqClosing.contact.benefits.benefit1.description')
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Demo en vivo",
-      description: "Sistema funcionando en tiempo real"
+      title: t('aboutFaqClosing.contact.benefits.benefit2.title'),
+      description: t('aboutFaqClosing.contact.benefits.benefit2.description')
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
-      title: "Sin compromiso",
-      description: "Solo información, sin presión"
+      title: t('aboutFaqClosing.contact.benefits.benefit3.title'),
+      description: t('aboutFaqClosing.contact.benefits.benefit3.description')
     }
   ];
 
@@ -228,43 +250,41 @@ const AboutFaqClosing = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
-                Nuestra historia
+                {t('aboutFaqClosing.history.title')}
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium mb-8">
-                Experiencia comprobada
+                {t('aboutFaqClosing.history.subtitle')}
               </p>
               
               <div className="text-[#222952] text-lg leading-relaxed mb-12 max-w-3xl mx-auto">
                 <p className="mb-4">
-                  <span className="font-bold">Desde 2021</span> ayudamos a agencias inmobiliarias a captar propietarios interesados en vender. Hemos perfeccionado nuestro sistema en España.
+                  {t('aboutFaqClosing.history.description.part1')}
                 </p>
                 <p>
-                  Conocemos el sector y entendemos lo que cuesta conseguir un encargo. Por eso te acompañamos en todo el proceso.
+                  {t('aboutFaqClosing.history.description.part2')}
                 </p>
               </div>
             </div>
             
             {/* Timeline horizontal con imágenes de fondo */}
             <div className="grid md:grid-cols-4 gap-6">
-  {timeline.map((item, idx) => (
-    <div key={idx} className="text-center">
-      <div
-        className="w-20 h-20 rounded-full bg-cover bg-center mx-auto mb-3 border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
-        style={{ backgroundImage: `url(${item.img})` }}
-      >
-        <div className="w-full h-full bg-[#6D7FBE]/50 rounded-full flex items-center justify-center text-white font-bold text-lg">
-          {item.year}
-        </div>
-      </div>
-      <p className="text-[#222952] text-sm leading-relaxed font-playfair italic">
-        {item.event}
-      </p>
-    </div>
-  ))}
-</div>
-
-</div>
-
+              {timeline.map((item, idx) => (
+                <div key={idx} className="text-center">
+                  <div
+                    className="w-20 h-20 rounded-full bg-cover bg-center mx-auto mb-3 border-4 border-white shadow-md hover:scale-105 transition-transform duration-300"
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  >
+                    <div className="w-full h-full bg-[#6D7FBE]/50 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      {item.year}
+                    </div>
+                  </div>
+                  <p className="text-[#222952] text-sm leading-relaxed font-playfair italic">
+                    {item.event}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         );
 
       case 1: // FAQ
@@ -272,10 +292,10 @@ const AboutFaqClosing = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
-                Preguntas frecuentes
+                {t('aboutFaqClosing.faq.title')}
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium">
-                Dudas resueltas
+                {t('aboutFaqClosing.faq.subtitle')}
               </p>
             </div>
             
@@ -296,22 +316,21 @@ const AboutFaqClosing = () => {
                   </button>
                   
                   <AnimatePresence initial={false}>
-                  {openFaq === idx && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.1, ease: 'easeInOut' }}
-                      className="overflow-hidden px-6 pb-4 border-t border-gray-100 bg-gray-50"
-                    >
-                      <div className="pt-4">
-                        <p className="text-[#222952] leading-relaxed">{faq.answer}</p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
+                    {openFaq === idx && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.1, ease: 'easeInOut' }}
+                        className="overflow-hidden px-6 pb-4 border-t border-gray-100 bg-gray-50"
+                      >
+                        <div className="pt-4">
+                          <p className="text-[#222952] leading-relaxed">{faq.answer}</p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
@@ -323,57 +342,55 @@ const AboutFaqClosing = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <h3 className="text-4xl font-bold text-[#222952] mb-4 font-playfair italic">
-                Agenda tu reunión
+                {t('aboutFaqClosing.contact.title')}
               </h3>
               <p className="text-xl text-[#6D7FBE] font-medium mb-8">
-                Último paso
+                {t('aboutFaqClosing.contact.subtitle')}
               </p>
               
               <p className="text-[#222952] text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
-                En <span className="font-bold text-[#6D7FBE]">15 minutos</span> te mostramos cómo funcionamos y si{' '}
-                <span className="font-bold">tu zona está libre</span>.
+                {t('aboutFaqClosing.contact.description.part1')} <span className="font-bold text-[#6D7FBE]">{t('aboutFaqClosing.contact.description.highlight')}</span> {t('aboutFaqClosing.contact.description.part2')}{' '}
+                <span className="font-bold">{t('aboutFaqClosing.contact.description.part3')}</span>
               </p>
             </div>
             
-           {/* Beneficios en grid */}
-<div className="grid md:grid-cols-3 gap-8 mb-12">
-  {benefits.map((benefit, idx) => (
-    <div key={idx} className="text-center group">
-      {/* Icono con gradiente - mismo estilo */}
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6D7FBE] to-[#222952] text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 mx-auto">
-        {benefit.icon}
-      </div>
-      <h4 className="font-bold text-[#222952] mb-2">{benefit.title}</h4>
-      <p className="text-[#222952] text-sm font-playfair italic">{benefit.description}</p>
-    </div>
-  ))}
-</div>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {benefits.map((benefit, idx) => (
+                <div key={idx} className="text-center group">
+                  {/* Icono con gradiente - mismo estilo */}
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6D7FBE] to-[#222952] text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 mx-auto">
+                    {benefit.icon}
+                  </div>
+                  <h4 className="font-bold text-[#222952] mb-2">{benefit.title}</h4>
+                  <p className="text-[#222952] text-sm font-playfair italic">{benefit.description}</p>
+                </div>
+              ))}
+            </div>
 
             {/* CTA destacado con imagen de fondo */}
-<div
-  className="relative rounded-2xl p-8 text-white overflow-hidden"
-  style={{
-    backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Overlay suave */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#222952]/45 to-[#6D7FBE]/80 z-0"></div>
+            <div
+              className="relative rounded-2xl p-8 text-white overflow-hidden"
+              style={{
+                backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Overlay suave */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#222952]/45 to-[#6D7FBE]/80 z-0"></div>
 
-  {/* Contenido encima */}
-  <div className="relative z-10 text-center">
-    <Phone className="w-12 h-12 mx-auto mb-4 opacity-80" />
-    <h4 className="text-2xl font-bold mb-2">¡Hablemos!</h4>
-    <p className="opacity-90 mb-4">Respuesta en menos de 2 horas</p>
-    <div className="flex items-center justify-center gap-6 text-sm opacity-80">
-      <span>✓ 100% Gratuito</span>
-      <span>✓ 15 minutos</span>
-      <span>✓ Sin compromiso</span>
-    </div>
-  </div>
-</div>
-
+              {/* Contenido encima */}
+              <div className="relative z-10 text-center">
+                <Phone className="w-12 h-12 mx-auto mb-4 opacity-80" />
+                <h4 className="text-2xl font-bold mb-2">{t('aboutFaqClosing.contact.cta.title')}</h4>
+                <p className="opacity-90 mb-4">{t('aboutFaqClosing.contact.cta.subtitle')}</p>
+                <div className="flex items-center justify-center gap-6 text-sm opacity-80">
+                  <span>✓ {t('aboutFaqClosing.contact.cta.features.feature1')}</span>
+                  <span>✓ {t('aboutFaqClosing.contact.cta.features.feature2')}</span>
+                  <span>✓ {t('aboutFaqClosing.contact.cta.features.feature3')}</span>
+                </div>
+              </div>
+            </div>
           </div>
         );
 
@@ -454,18 +471,17 @@ const AboutFaqClosing = () => {
             </div>
             
             <h2 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Conocenos</span>
+              <span className="text-white">{t('aboutFaqClosing.title.main')}</span>
               <span className="block text-3xl md:text-4xl font-light text-[#6D7FBE] mt-2">
-                y resuelve tus dudas
+                {t('aboutFaqClosing.title.subtitle')}
               </span>
             </h2>
             
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Todo lo que necesitas saber sobre nosotros y nuestro servicio
+              {t('aboutFaqClosing.description')}
             </p>
           </div>
 
-          {/* Métricas */}
           <div className={`grid md:grid-cols-4 gap-8 mb-20 max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
@@ -522,36 +538,33 @@ const AboutFaqClosing = () => {
           {/* CTA final */}
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
             <h3 className="text-3xl font-bold text-white mb-4">
-              ¿Tienes más preguntas?
+              {t('aboutFaqClosing.finalCta.title')}
             </h3>
             <p className="text-white/80 mb-8 max-w-xl mx-auto">
-              Hablemos y te contamos todo lo que necesitas saber
+              {t('aboutFaqClosing.finalCta.description')}
             </p>
             
             <button className="group bg-white text-[#222952] px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto transform hover:scale-105">
               <Phone className="w-5 h-5" />
-              Hablar con un asesor
+              {t('aboutFaqClosing.finalCta.button')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
             <div className="flex items-center justify-center gap-6 mt-6 text-sm text-white/70">
               <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
-                <CheckCircle className="w-4 h-4" />
-                100% Gratuito
+                {t('aboutFaqClosing.finalCta.benefits.benefit1')}
               </span>
               <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
-                <CheckCircle className="w-4 h-4" />
-                Solo 15 minutos
+                {t('aboutFaqClosing.finalCta.benefits.benefit2')}
               </span>
               <span className="flex items-center gap-2 hover:text-white transition-colors duration-300">
-                <CheckCircle className="w-4 h-4" />
-                Sin compromiso
+                {t('aboutFaqClosing.finalCta.benefits.benefit3')}
               </span>
             </div>
           </div>
         </div>
       </section>
-      </>
+    </>
   );
 };
 
