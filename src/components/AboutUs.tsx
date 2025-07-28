@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Users, Award, Clock, MapPin, Calendar, Phone, ChevronDown, CheckCircle, Zap, ArrowRight, Target, Shield, MessageCircle, Layers, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../context/TranslationContext';
+import CalendlyModal from './CalendlyModal';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
 
+// Componente LogosCarousel separado - FUERA del AboutFaqClosing
 const LogosCarousel = ({ isVisible }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
-  // Hook de traducciones
   const { t } = useTranslation();
 
   const companies = [
@@ -77,7 +78,6 @@ const LogosCarousel = ({ isVisible }) => {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-8 h-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all duration-300"
@@ -92,7 +92,6 @@ const LogosCarousel = ({ isVisible }) => {
             <ChevronRight className="w-4 h-4" />
           </button>
 
-          {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-6">
             {Array.from({ length: totalSlides }, (_, index) => (
               <button
@@ -112,18 +111,22 @@ const LogosCarousel = ({ isVisible }) => {
   );
 };
 
+// Componente principal AboutFaqClosing - UNA SOLA DEFINICIÓN
 const AboutFaqClosing = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
 
-  // Hook de traducciones
+  // Hooks
   const { t } = useTranslation();
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
   }, []);
+
+  // ... resto de tu código igual (sections, stats, timeline, faqs, benefits, toggleFaq, renderSectionContent) ...
 
   // Sections con traducciones
   const sections = [
@@ -266,7 +269,6 @@ const AboutFaqClosing = () => {
               </div>
             </div>
             
-            {/* Timeline horizontal con imágenes de fondo */}
             <div className="grid md:grid-cols-4 gap-6">
               {timeline.map((item, idx) => (
                 <div key={idx} className="text-center">
@@ -357,7 +359,6 @@ const AboutFaqClosing = () => {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {benefits.map((benefit, idx) => (
                 <div key={idx} className="text-center group">
-                  {/* Icono con gradiente - mismo estilo */}
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6D7FBE] to-[#222952] text-white mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 mx-auto">
                     {benefit.icon}
                   </div>
@@ -367,7 +368,6 @@ const AboutFaqClosing = () => {
               ))}
             </div>
 
-            {/* CTA destacado con imagen de fondo */}
             <div
               className="relative rounded-2xl p-8 text-white overflow-hidden"
               style={{
@@ -376,10 +376,8 @@ const AboutFaqClosing = () => {
                 backgroundPosition: "center",
               }}
             >
-              {/* Overlay suave */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#222952]/45 to-[#6D7FBE]/80 z-0"></div>
 
-              {/* Contenido encima */}
               <div className="relative z-10 text-center">
                 <Phone className="w-12 h-12 mx-auto mb-4 opacity-80" />
                 <h4 className="text-2xl font-bold mb-2">{t('aboutFaqClosing.contact.cta.title')}</h4>
@@ -402,9 +400,8 @@ const AboutFaqClosing = () => {
   return (
     <>      
       <section className="py-24 bg-gradient-to-br from-[#1a1f3a] to-[#2d3561] relative overflow-hidden" id="historia">
-        {/* Background animado con olas y formas flotantes */}
+        {/* Background animado */}
         <div className="absolute inset-0">
-          {/* Olas animadas */}
           <svg 
             className="absolute bottom-0 left-0 w-full h-40 text-[#6D7FBE]" 
             viewBox="0 0 1200 120" 
@@ -436,7 +433,6 @@ const AboutFaqClosing = () => {
             />
           </svg>
           
-          {/* Olas superiores animadas */}
           <svg 
             className="absolute top-0 left-0 w-full h-40 text-[#6D7FBE] transform rotate-180" 
             viewBox="0 0 1200 120" 
@@ -450,14 +446,12 @@ const AboutFaqClosing = () => {
             />
           </svg>
 
-          {/* Formas flotantes animadas */}
           <div className="absolute top-20 left-10 w-20 h-20 bg-[#6D7FBE] rounded-full opacity-10 animate-bounce" style={{ animationDuration: '3s' }}></div>
           <div className="absolute top-40 right-20 w-12 h-12 bg-white rounded-full opacity-5 animate-pulse" style={{ animationDuration: '2s' }}></div>
           <div className="absolute bottom-40 left-1/4 w-16 h-16 bg-[#6D7FBE] rounded-full opacity-8 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
           <div className="absolute top-1/3 right-1/3 w-8 h-8 bg-white rounded-full opacity-10 animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
           <div className="absolute bottom-20 right-10 w-14 h-14 bg-[#6D7FBE] rounded-full opacity-6 animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
 
-          {/* Gradiente superpuesto para suavizar */}
           <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/5 to-transparent"></div>
         </div>
 
@@ -544,7 +538,10 @@ const AboutFaqClosing = () => {
               {t('aboutFaqClosing.finalCta.description')}
             </p>
             
-            <button className="group bg-white text-[#222952] px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto transform hover:scale-105">
+            <button 
+              onClick={openModal} 
+              className="group bg-white text-[#222952] px-8 py-4 rounded-full font-semibold hover:bg-[#6D7FBE] hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl mx-auto transform hover:scale-105"
+            >
               <Phone className="w-5 h-5" />
               {t('aboutFaqClosing.finalCta.button')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -564,6 +561,8 @@ const AboutFaqClosing = () => {
           </div>
         </div>
       </section>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </>
   );
 };

@@ -1,59 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Play, Award, X } from 'lucide-react';
 import { useTranslation } from '../context/TranslationContext';
+import CalendlyModal from './CalendlyModal';
 
+// Hook simplificado
 const useCalendlyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      const existingScript = document.querySelector('script[src*="calendly"]');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
   return { isOpen, openModal, closeModal };
-};
-
-const CalendlyModal = ({ isOpen, onClose, t }) => {
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-2 sm:p-4">
-      <div className="bg-white rounded-xl sm:rounded-2xl max-w-sm sm:max-w-2xl md:max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl">
-        <div className="flex items-center justify-between p-3 sm:p-6 border-b border-gray-200">
-          <h3 className="text-lg sm:text-2xl font-bold text-[#222952]">Reserva tu consulta gratuita</h3>
-          <button onClick={onClose} className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
-          </button>
-        </div>
-        <div className="p-2 sm:p-4 md:p-6">
-          <div className="calendly-inline-widget" data-url="https://calendly.com/endikaibarzabal/30min?hide_gdpr_banner=1" style={{ minWidth:'320px', height: window.innerWidth < 640 ? '450px' : '700px' }} />
-        </div>
-      </div>
-    </div>
-  );
 };
 
 const Hero = () => {
@@ -160,7 +115,7 @@ const Hero = () => {
           }
         `}</style>
       </section>
-      <CalendlyModal isOpen={isOpen} onClose={closeModal} t={t} />
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </>
   );
 };

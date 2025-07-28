@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, ArrowRight, Phone } from 'lucide-react';
 import { useTranslation } from '../context/TranslationContext';
-
+import CalendlyModal from './CalendlyModal'; 
+import { useCalendlyModal } from '@/hooks/useCalendlyModal';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-
-  // Hook de traducciones
+  
+  // Hook de Calendly
+// En Header.jsx
+const { isOpen, openModal, closeModal } = useCalendlyModal();
+// Hook de traducciones
   const { t, currentLanguage, changeLanguage, getAvailableLanguages } = useTranslation();
 
   useEffect(() => {
@@ -84,7 +88,6 @@ const Header = () => {
                 />
               </a>
             </div>
-
             {/* Navegación Desktop */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item, index) => (
@@ -99,7 +102,6 @@ const Header = () => {
                 </a>
               ))}
             </nav>
-
             {/* Controles Desktop */}
             <div className="hidden lg:flex items-center gap-4">
               {/* Selector de idioma */}
@@ -130,14 +132,12 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-
               {/* Botones */}
               <div className="flex items-center gap-3">
-                <button className="group flex items-center gap-2 px-6 py-3 text-[#222952] hover:text-[#6D7FBE] font-medium text-sm transition-all duration-300 rounded-full border border-[#6D7FBE]/20 hover:border-[#6D7FBE] hover:bg-[#F8FAED]">
-                  <Phone className="w-4 h-4" />
-                  {t('header.buttons.call')}
-                </button>
-                <button className="group relative overflow-hidden bg-gradient-to-r from-[#222952] to-[#6D7FBE] text-white px-6 py-3 font-semibold text-sm rounded-full hover:shadow-xl hover:shadow-[#6D7FBE]/25 transition-all duration-500 hover:scale-105">
+                <button 
+                  onClick={openModal}
+                  className="group relative overflow-hidden bg-gradient-to-r from-[#222952] to-[#6D7FBE] text-white px-6 py-3 font-semibold text-sm rounded-full hover:shadow-xl hover:shadow-[#6D7FBE]/25 transition-all duration-500 hover:scale-105"
+                >
                   <span className="absolute inset-0 bg-gradient-to-r from-[#6D7FBE] to-[#222952] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                   <span className="relative flex items-center gap-2">
                     {t('header.buttons.freeDemo')}
@@ -146,7 +146,6 @@ const Header = () => {
                 </button>
               </div>
             </div>
-
             {/* Controles Mobile */}
             <div className="lg:hidden flex items-center gap-3 relative z-50">
               {/* Selector de idioma mobile */}
@@ -176,7 +175,6 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-
               {/* Botón hamburguesa */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -191,7 +189,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-
       {/* Menú móvil */}
       <div className={`lg:hidden fixed inset-x-0 bg-white shadow-2xl transition-all duration-500 z-40 ${
         isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
@@ -228,6 +225,7 @@ const Header = () => {
               {t('header.buttons.callNow')}
             </button>
             <button
+              onClick={openModal}
               className={`w-full bg-gradient-to-r from-[#222952] to-[#6D7FBE] text-white px-6 py-4 font-semibold rounded-xl hover:shadow-xl hover:shadow-[#6D7FBE]/25 transition-all duration-500 hover:scale-105 ${
                 isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
               }`}
@@ -243,7 +241,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
       {/* Overlay */}
       <div 
         className={`lg:hidden fixed inset-0 bg-black/20 transition-all duration-300 z-30 ${
@@ -251,7 +248,10 @@ const Header = () => {
         }`} 
         onClick={() => setIsMenuOpen(false)}
       />
-    </>
+      
+      {/* Modal de Calendly */}
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
+   </>
   );
 };
 

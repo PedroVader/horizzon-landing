@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Users, Target, MessageCircle, Shield, Calendar, Phone, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { useTranslation } from '../context/TranslationContext';
+import CalendlyModal from './CalendlyModal'; // ← Importar el componente
+import { useCalendlyModal } from '../hooks/useCalendlyModal'; // ← Importar el hook
 
 const ServiceIncludes = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const roiRef = useRef(null);
   const [roiVisible, setRoiVisible] = useState(false);
+  
 
   // Hook de traducciones
   const { t } = useTranslation();
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
+
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -164,14 +169,13 @@ const ServiceIncludes = () => {
           {/* CTA */}
           <div className="text-center">
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
-              <button className="group bg-gradient-to-r from-[#6D7FBE] to-[#222952] text-white px-10 py-5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 transform hover:scale-105">
+            <button 
+                onClick={openModal}
+                className="group bg-gradient-to-r from-[#6D7FBE] to-[#222952] text-white px-10 py-5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 transform hover:scale-105"
+              >
                 <Calendar className="w-5 h-5" />
                 {t('serviceIncludes.cta.buttons.demo')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group bg-white text-[#222952] px-10 py-5 rounded-full font-semibold border-2 border-[#6D7FBE] transition-all duration-300 flex items-center gap-3 transform hover:scale-105">
-                <Phone className="w-5 h-5" />
-                {t('serviceIncludes.cta.buttons.advisor')}
               </button>
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-[#222952]/70">
@@ -191,6 +195,9 @@ const ServiceIncludes = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal de Calendly ← Agregar esto */}
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </>
   );
 };

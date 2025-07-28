@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Target, Search, Users, Filter, Sparkles, ArrowRight, Zap } from 'lucide-react';
 import { useTranslation } from '../context/TranslationContext';
+import CalendlyModal from './CalendlyModal'; // ← Importar el componente
+import { useCalendlyModal } from '../hooks/useCalendlyModal'; // ← Importar el hook
 
 const WhatWeDo = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeProcess, setActiveProcess] = useState(0);
   const statsRef = useRef(null);
   const [statsVisible, setStatsVisible] = useState(false);
+  
 
   // Hook de traducciones
   const { t } = useTranslation();
+
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -257,16 +262,20 @@ const WhatWeDo = () => {
 
           {/* CTA minimalista profesional */}
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-[#222952] text-white rounded-full hover:bg-[#6D7FBE] transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl">
+          <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
+            <button
+              onClick={openModal} 
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#222952] text-white rounded-full hover:bg-[#6D7FBE] transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl hover:scale-105"
+            >
               <span className="font-semibold">{t('whatWeDo.cta.button')}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </div>
+            </button>
+          </div>
           </div>
         </div>
       </section>
       
-      {/* Transition section */}
-      <div className="h-12 bg-white"></div>
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </>
   );
 };
