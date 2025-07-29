@@ -33,52 +33,47 @@ const TranslationContext = createContext<TranslationContextType | undefined>(und
 
 // Provider del contexto
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({ children }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<string>('es');
-  
-  // Detectar idioma del navegador al iniciar
+  const [currentLanguage, setCurrentLanguage] = useState<string>('pt'); // ✅ idioma por defecto = portugués
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
-    const browserLang = navigator.language.slice(0, 2);
     const supportedLangs = ['es', 'en', 'pt'];
-    
-    // Verificar si hay idioma guardado en localStorage
     const savedLang = localStorage.getItem('horizzon-language');
-    
+  
+    console.log('[🌐 Translation] savedLang:', savedLang);
+  
     if (savedLang && supportedLangs.includes(savedLang)) {
       setCurrentLanguage(savedLang);
-    } else if (supportedLangs.includes(browserLang)) {
-      setCurrentLanguage(browserLang);
+      console.log('[🌐 Translation] Usando idioma guardado:', savedLang);
+    } else {
+      // Si no hay idioma guardado, se queda en portugués por defecto
+      console.log('[🌐 Translation] Usando idioma por defecto: pt');
     }
+  
+    setIsReady(true);
   }, []);
+  
 
-  // Función para obtener traducción anidada (ej: hero.title.line1)
   const getNestedTranslation = (obj: any, path: string): string | null => {
     return path.split('.').reduce((current, key) => {
       return current && current[key] ? current[key] : null;
     }, obj);
   };
 
-  // Función principal de traducción
   const t = (key: string, fallback: string = key): string => {
     const translation = getNestedTranslation(translations[currentLanguage], key);
-    
-    if (translation) {
-      return translation;
-    }
-    
-    // Si no encuentra en el idioma actual, intenta en español como fallback
+
+    if (translation) return translation;
+
     if (currentLanguage !== 'es') {
       const fallbackTranslation = getNestedTranslation(translations.es, key);
-      if (fallbackTranslation) {
-        return fallbackTranslation;
-      }
+      if (fallbackTranslation) return fallbackTranslation;
     }
-    
-    // Si no encuentra nada, devuelve el fallback o la clave
+
     console.warn(`Translation missing for key: ${key} in language: ${currentLanguage}`);
     return fallback;
   };
 
-  // Función para cambiar idioma
   const changeLanguage = (lang: string): void => {
     if (translations[lang]) {
       setCurrentLanguage(lang);
@@ -88,12 +83,10 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
     }
   };
 
-  // Obtener idiomas disponibles
   const getAvailableLanguages = (): string[] => {
     return Object.keys(translations);
   };
 
-  // Valor del contexto
   const value: TranslationContextType = {
     currentLanguage,
     changeLanguage,
@@ -104,7 +97,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
 
   return (
     <TranslationContext.Provider value={value}>
-      {children}
+      {isReady ? children : null}
     </TranslationContext.Provider>
   );
 };
