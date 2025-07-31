@@ -46,7 +46,7 @@
   },
   "whatWeDo": {
     "subtitle": "Nuestro proceso",
-    "title": "Que hacemos?",
+    "title": "¿Qué hacemos?",
     "description": "Sistema automatizado para generar leads cualificados de propietarios vendedores",
     "process": {
       "step1": {
@@ -161,7 +161,7 @@
     "subtitle": "Todo incluido",
     "title": {
       "main": "Un canal extra de",
-      "highlight": "captacion automatica"
+      "highlight": "captación automática"
     },
     "description": "Todo lo que necesitas para generar leads de calidad sin esfuerzo",
     "features": {
@@ -227,7 +227,7 @@
   },
   "successCases": {
     "title": {
-      "main": "Casos de exito",
+      "main": "Casos de éxito",
       "subtitle": "resultados reales"
     },
     "description": "Profesionales como tú que han transformado su negocio y multiplicado sus resultados",
@@ -302,7 +302,7 @@
   }, 
     "aboutFaqClosing": {
       "title": {
-        "main": "Conocenos",
+        "main": "Conócenos",
         "subtitle": "y resuelve tus dudas"
       },
       "description": "Todo lo que necesitas saber sobre nosotros y nuestro servicio",
@@ -424,7 +424,7 @@
           "benefit3": "Sin compromiso"
         }
       }
-    } ,
+    },
       "clientesPage": {
         "badge": "Bienvenido al sistema",
         "hero": {
@@ -444,13 +444,13 @@
           "step1": {
             "title": "Antes de empezar, hay dos preguntas clave:",
             "question1": {
-              "title": "Como conseguimos los leads?",
+              "title": "¿Cómo conseguimos los leads?",
               "text1": "Usamos campañas segmentadas en Meta (Facebook + Instagram) y Google Ads para llegar a personas que están valorando vender su vivienda. Creamos anuncios que generan interés real y los llevamos a formularios donde les pedimos datos clave: zona, tipo de inmueble, motivo de venta...",
               "text2": "Este paso nos permite descartar a los curiosos y centrarnos en propietarios que sí están dispuestos a hablar. No es un sistema perfecto —como en cualquier captación online puede colarse algún lead no deseado— pero no es lo habitual.",
               "tip": "Además, antes de lanzar tu campaña, te compartimos una descripción del tipo de anuncio que usaremos, para que sepas qué ha visto el propietario cuando te llame o le llames tú. Esto te ayudará a orientar la conversación y no entrar a ciegas."
             },
             "question2": {
-              "title": "Que resultados puedes esperar?",
+              "title": "¿Qué resultados puedes esperar?",
               "stats": {
                 "leads": "40",
                 "leadsLabel": "Leads exclusivos/mes",
@@ -469,7 +469,7 @@
             }
           },
           "timeline": {
-            "title": "Cuando empiezas a ver leads?",
+            "title": "¿Cuándo empiezas a ver leads?",
             "text": "Normalmente en 24-48h desde el lanzamiento de campaña ya empiezan a entrar. En algunos casos puede tardar un poco más (hasta 4-5 días), pero es poco frecuente. Lo importante: el volumen mensual siempre se cumple."
           },
           "summary": {
@@ -479,9 +479,9 @@
             "slogan": "Vamos a por esos encargos"
           },
           "step2": {
-            "title": "Cierra reunion via Calendly para el onboarding",
+            "title": "Cierra reunión vía Calendly para el onboarding",
             "cta": {
-              "title": "Ultimo paso para empezar!",
+              "title": "¡Último paso para empezar!",
               "description": "Programa tu reunión de onboarding para configurar tu campaña y empezar a recibir leads en 24-48h.",
               "button": "Reservar mi reunión de onboarding"
             }
@@ -489,4 +489,3 @@
         }
       }
     }
-  

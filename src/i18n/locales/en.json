@@ -1,492 +1,491 @@
 {
-    "header": {
-      "logo": {
-        "alt": "Horizzon Media Logo"
-      },
-      "navigation": {
-        "process": "Process",
-        "service": "Service",
-        "cases": "Success Cases",
-        "about": "About Us"
-      },
-      "buttons": {
-        "call": "Call",
-        "callNow": "Call now",
-        "freeDemo": "Free Demo"
-      },
-      "language": {
-        "spanish": "Español",
-        "portuguese": "Português",
-        "english": "English"
-      }
+  "header": {
+    "logo": {
+      "alt": "Horizzon Media Logo"
     },
-    "hero": {
-      "videoFallback": "Your browser does not support HTML5 video.",
-      "badge": "Leaders in online lead generation for real estate",
-      "title": {
-        "line1": "Get property owners",
-        "line2": "ready to sell in your area"
-      },
-      "subtitle": {
-        "main": "Exclusive leads for real estate agencies.",
-        "highlight": "No commitment.",
-        "ending": "With results."
-      },
-      "logos": {
-        "alt1": "Real Estate Agency 1",
-        "alt2": "Real Estate Agency 2",
-        "alt3": "Real Estate Agency 3",
-        "alt4": "Real Estate Agency 4",
-        "alt5": "Real Estate Agency 5"
-      },
-      "buttons": {
-        "primary": "I want to see how it works",
-        "secondary": "View success cases"
-      }
+    "navigation": {
+      "process": "Process",
+      "service": "Service",
+      "cases": "Success Cases",
+      "about": "About Us"
     },
-    "whatWeDo": {
-      "subtitle": "Our process",
-      "title": "What do we do?",
-      "description": "Automated system to generate qualified leads from property sellers",
-      "process": {
-        "step1": {
-          "title": "We define",
-          "subtitle": "your target area",
-          "description": "We analyze your local market to maximize opportunities",
-          "stats": {
-            "value": "72",
-            "suffix": "h",
-            "label": "quick setup"
-          }
-        },
-        "step2": {
-          "title": "We launch",
-          "subtitle": "targeted campaigns",
-          "description": "Meta and Google Ads optimized for property owners",
-          "stats": {
-            "value": "10",
-            "suffix": "+",
-            "label": "active agencies"
-          }
-        },
-        "step3": {
-          "title": "We filter",
-          "subtitle": "the contacts",
-          "description": "Only qualified leads with real intention",
-          "stats": {
-            "value": "95",
-            "suffix": "%",
-            "label": "accuracy"
-          }
-        },
-        "step4": {
-          "title": "We deliver",
-          "subtitle": "ready leads",
-          "description": "Verified contacts direct to your CRM",
-          "stats": {
-            "value": "40",
-            "suffix": "+",
-            "label": "monthly leads"
-          }
+    "buttons": {
+      "call": "Call",
+      "callNow": "Call now",
+      "freeDemo": "Free Demo"
+    },
+    "language": {
+      "spanish": "Español",
+      "portuguese": "Português",
+      "english": "English"
+    }
+  },
+  "hero": {
+    "videoFallback": "Your browser does not support HTML5 video.",
+    "badge": "Leaders in online lead generation for real estate",
+    "title": {
+      "line1": "Get property owners",
+      "line2": "ready to sell in your area"
+    },
+    "subtitle": {
+      "main": "Exclusive leads for real estate agencies.",
+      "highlight": "No commitment.",
+      "ending": "With results."
+    },
+    "logos": {
+      "alt1": "Real Estate Agency 1",
+      "alt2": "Real Estate Agency 2",
+      "alt3": "Real Estate Agency 3",
+      "alt4": "Real Estate Agency 4",
+      "alt5": "Real Estate Agency 5"
+    },
+    "buttons": {
+      "primary": "I want to see how it works",
+      "secondary": "View success cases"
+    }
+  },
+  "whatWeDo": {
+    "subtitle": "Our process",
+    "title": "What do we do?",
+    "description": "Automated system to generate qualified leads from property sellers",
+    "process": {
+      "step1": {
+        "title": "We define",
+        "subtitle": "your target area",
+        "description": "We analyze your local market to maximize opportunities",
+        "stats": {
+          "value": "72",
+          "suffix": "h",
+          "label": "quick setup"
         }
       },
-      "results": {
-        "title": "Results that matter"
+      "step2": {
+        "title": "We launch",
+        "subtitle": "targeted campaigns",
+        "description": "Meta and Google Ads optimized for property owners",
+        "stats": {
+          "value": "10",
+          "suffix": "+",
+          "label": "active agencies"
+        }
       },
-      "cta": {
-        "button": "Start now"
-      }
-    },
-    "realLeads": {
-      "title": {
-        "main": "Leads",
-        "highlight": "verified",
-        "ending": "that convert"
-      },
-      "subtitle": "Only property owners with real intention to sell",
-      "stats": {
-        "stat1": {
-          "number": "3",
-          "suffix": "x",
-          "label": "Higher conversion"
-        },
-        "stat2": {
-          "number": "85",
+      "step3": {
+        "title": "We filter",
+        "subtitle": "the contacts",
+        "description": "Only qualified leads with real intention",
+        "stats": {
+          "value": "95",
           "suffix": "%",
-          "label": "Successful contact"
-        },
-        "stat3": {
-          "number": "60",
-          "suffix": "%",
-          "label": "Time saved"
+          "label": "accuracy"
         }
       },
-      "features": {
-        "feature1": {
-          "title": "Smart forms",
-          "text": "Verify real interest from each property owner"
-        },
-        "feature2": {
-          "title": "Key questions",
-          "text": "Automatically discard weak profiles"
-        },
-        "feature3": {
-          "title": "Precise segmentation",
-          "text": "By geographic area and property type"
-        },
-        "feature4": {
-          "title": "Maximum effectiveness",
-          "text": "We eliminate unqualified leads"
-        }
-      },
-      "opportunities": {
-        "title": "Opportunities ready to close",
-        "description": "Leads more open to talk and with higher probability of exclusive contract.",
-        "benefits": {
-          "benefit1": "Verified property owners",
-          "benefit2": "Updated data",
-          "benefit3": "Ready to contact"
-        },
-        "cta": "View success cases"
-      },
-      "testimonial": {
-        "text": "Agents save",
-        "time": "4h",
-        "timeLabel": "weekly and increase",
-        "percentage": "40%",
-        "ending": "their closing rate"
-      }
-    },
-    "serviceIncludes": {
-      "subtitle": "All included",
-      "title": {
-        "main": "An extra channel of",
-        "highlight": "automatic lead generation"
-      },
-      "description": "Everything you need to generate quality leads effortlessly",
-      "features": {
-        "feature1": {
-          "title": "+ 40 exclusive leads",
-          "subtitle": "every month",
-          "description": "Adapted to your area and ideal client type",
-          "highlight": "40"
-        },
-        "feature2": {
-          "title": "Active campaigns",
-          "subtitle": "Meta + Google",
-          "description": "Managed by real estate lead generation experts",
-          "highlight": "24/7"
-        },
-        "feature3": {
-          "title": "Personalized",
-          "subtitle": "support",
-          "description": "Script, WhatsApp group and monthly review",
-          "highlight": "1:1"
-        },
-        "feature4": {
-          "title": "No commitment",
-          "subtitle": "required",
-          "description": "We work month to month, only if you're satisfied",
-          "highlight": "0€"
-        }
-      },
-      "roi": {
-        "heading": "And the best part",
-        "description": {
-          "part1": "By closing just",
-          "highlight": "one single contract",
-          "part2": "per month, you already pay for the service.",
-          "part3": "Everything else is pure profit."
-        },
-        "metrics": {
-          "metric1": {
-            "value": "1",
-            "label": "Contract = ROI"
-          },
-          "metric2": {
-            "value": "2+",
-            "label": "Pure profit"
-          },
-          "metric3": {
-            "value": "40",
-            "label": "Leads per month"
-          }
-        }
-      },
-      "cta": {
-        "buttons": {
-          "demo": "View free demo",
-          "advisor": "Talk to advisor"
-        },
-        "benefits": {
-          "benefit1": "No commitment",
-          "benefit2": "24h response",
-          "benefit3": "Personalized demo"
+      "step4": {
+        "title": "We deliver",
+        "subtitle": "ready leads",
+        "description": "Verified contacts direct to your CRM",
+        "stats": {
+          "value": "40",
+          "suffix": "+",
+          "label": "monthly leads"
         }
       }
     },
-    "successCases": {
-      "title": {
-        "main": "Success cases",
-        "subtitle": "real results"
+    "results": {
+      "title": "Results that matter"
+    },
+    "cta": {
+      "button": "Start now"
+    }
+  },
+  "realLeads": {
+    "title": {
+      "main": "Leads",
+      "highlight": "verified",
+      "ending": "that convert"
+    },
+    "subtitle": "Only property owners with real intention to sell",
+    "stats": {
+      "stat1": {
+        "number": "3",
+        "suffix": "x",
+        "label": "Higher conversion"
       },
-      "description": "Professionals like you who have transformed their business and multiplied their results",
-      "logosCarousel": {
-        "text": "More than 70 real estate agencies trust us"
+      "stat2": {
+        "number": "85",
+        "suffix": "%",
+        "label": "Successful contact"
       },
-      "testimonials": {
-        "testimonial1": {
-          "quote": "We closed 3 contracts in the first month. Amazing.",
-          "author": "Carlos Mendoza",
-          "company": "NovaHabitat Agency",
-          "location": "Madrid",
-          "stats": {
-            "encargos": "3",
-            "leads": "38",
-            "tiempo": "4"
-          }
+      "stat3": {
+        "number": "60",
+        "suffix": "%",
+        "label": "Time saved"
+      }
+    },
+    "features": {
+      "feature1": {
+        "title": "Smart forms",
+        "text": "Verify real interest from each property owner"
+      },
+      "feature2": {
+        "title": "Key questions",
+        "text": "Automatically discard weak profiles"
+      },
+      "feature3": {
+        "title": "Precise segmentation",
+        "text": "By geographic area and property type"
+      },
+      "feature4": {
+        "title": "Maximum effectiveness",
+        "text": "We eliminate unqualified leads"
+      }
+    },
+    "opportunities": {
+      "title": "Opportunities ready to close",
+      "description": "Leads more open to talk and with higher probability of exclusive contract.",
+      "benefits": {
+        "benefit1": "Verified property owners",
+        "benefit2": "Updated data",
+        "benefit3": "Ready to contact"
+      },
+      "cta": "View success cases"
+    },
+    "testimonial": {
+      "text": "Agents save",
+      "time": "4h",
+      "timeLabel": "weekly and increase",
+      "percentage": "40%",
+      "ending": "their closing rate"
+    }
+  },
+  "serviceIncludes": {
+    "subtitle": "All included",
+    "title": {
+      "main": "An extra channel of",
+      "highlight": "automatic lead generation"
+    },
+    "description": "Everything you need to generate quality leads effortlessly",
+    "features": {
+      "feature1": {
+        "title": "+ 40 exclusive leads",
+        "subtitle": "every month",
+        "description": "Adapted to your area and ideal client type",
+        "highlight": "40"
+      },
+      "feature2": {
+        "title": "Active campaigns",
+        "subtitle": "Meta + Google",
+        "description": "Managed by real estate lead generation experts",
+        "highlight": "24/7"
+      },
+      "feature3": {
+        "title": "Personalized",
+        "subtitle": "support",
+        "description": "Script, WhatsApp group and monthly review",
+        "highlight": "1:1"
+      },
+      "feature4": {
+        "title": "No commitment",
+        "subtitle": "required",
+        "description": "We work month to month, only if you're satisfied",
+        "highlight": "0€"
+      }
+    },
+    "roi": {
+      "heading": "And the best part",
+      "description": {
+        "part1": "By closing just",
+        "highlight": "one single contract",
+        "part2": "per month, you already pay for the service.",
+        "part3": "Everything else is pure profit."
+      },
+      "metrics": {
+        "metric1": {
+          "value": "1",
+          "label": "Contract = ROI"
         },
-        "testimonial2": {
-          "quote": "The leads we receive are of impressive quality. We no longer waste time with curious people.",
-          "author": "Marina Silva",
-          "company": "Silva Properties",
-          "location": "Barcelona",
-          "stats": {
-            "encargos": "5",
-            "leads": "42",
-            "tiempo": "3"
-          }
+        "metric2": {
+          "value": "2+",
+          "label": "Pure profit"
         },
-        "testimonial3": {
-          "quote": "In 6 months we have tripled our exclusive portfolio. The ROI is incredible.",
-          "author": "Alejandro Torres",
-          "company": "Torres & Associates",
-          "location": "Valencia",
-          "stats": {
-            "encargos": "8",
-            "leads": "45",
-            "tiempo": "2"
-          }
-        },
-        "testimonial4": {
-          "quote": "We had been looking for something like this for years. Now we have leads constantly without doing advertising ourselves.",
-          "author": "Isabel Ramírez",
-          "company": "Ramírez Real Estate",
-          "location": "Sevilla",
-          "stats": {
-            "encargos": "4",
-            "leads": "36",
-            "tiempo": "5"
-          }
-        }
-      },
-      "statsLabels": {
-        "encargos": "Contracts closed",
-        "leads": "Monthly leads",
-        "tiempo": "Time saved"
-      },
-      "verification": {
-        "rating": "5.0",
-        "verified": "Verified"
-      },
-      "cta": {
-        "title": "Want to be the next success case?",
-        "description": "Join +70 agencies that are already multiplying their results",
-        "button": "View complete cases",
-        "benefits": {
-          "benefit1": "Verified cases",
-          "benefit2": "Real results",
-          "benefit3": "No commitment"
+        "metric3": {
+          "value": "40",
+          "label": "Leads per month"
         }
       }
-    }, 
-        "aboutFaqClosing": {
-          "title": {
-            "main": "Get to know us",
-            "subtitle": "and solve your doubts"
+    },
+    "cta": {
+      "buttons": {
+        "demo": "View free demo",
+        "advisor": "Talk to advisor"
+      },
+      "benefits": {
+        "benefit1": "No commitment",
+        "benefit2": "24h response",
+        "benefit3": "Personalized demo"
+      }
+    }
+  },
+  "successCases": {
+    "title": {
+      "main": "Success cases",
+      "subtitle": "real results"
+    },
+    "description": "Professionals like you who have transformed their business and multiplied their results",
+    "logosCarousel": {
+      "text": "More than 70 real estate agencies trust us"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "We closed 3 contracts in the first month. Amazing.",
+        "author": "Carlos Mendoza",
+        "company": "NovaHabitat Agency",
+        "location": "Madrid",
+        "stats": {
+          "encargos": "3",
+          "leads": "38",
+          "tiempo": "4"
+        }
+      },
+      "testimonial2": {
+        "quote": "The leads we receive are of impressive quality. We no longer waste time with curious people.",
+        "author": "Marina Silva",
+        "company": "Silva Properties",
+        "location": "Barcelona",
+        "stats": {
+          "encargos": "5",
+          "leads": "42",
+          "tiempo": "3"
+        }
+      },
+      "testimonial3": {
+        "quote": "In 6 months we have tripled our exclusive portfolio. The ROI is incredible.",
+        "author": "Alejandro Torres",
+        "company": "Torres & Associates",
+        "location": "Valencia",
+        "stats": {
+          "encargos": "8",
+          "leads": "45",
+          "tiempo": "2"
+        }
+      },
+      "testimonial4": {
+        "quote": "We had been looking for something like this for years. Now we have leads constantly without doing advertising ourselves.",
+        "author": "Isabel Ramírez",
+        "company": "Ramírez Real Estate",
+        "location": "Sevilla",
+        "stats": {
+          "encargos": "4",
+          "leads": "36",
+          "tiempo": "5"
+        }
+      }
+    },
+    "statsLabels": {
+      "encargos": "Contracts closed",
+      "leads": "Monthly leads",
+      "tiempo": "Time saved"
+    },
+    "verification": {
+      "rating": "5.0",
+      "verified": "Verified"
+    },
+    "cta": {
+      "title": "Want to be the next success case?",
+      "description": "Join +70 agencies that are already multiplying their results",
+      "button": "View complete cases",
+      "benefits": {
+        "benefit1": "Verified cases",
+        "benefit2": "Real results",
+        "benefit3": "No commitment"
+      }
+    }
+  }, 
+      "aboutFaqClosing": {
+        "title": {
+          "main": "Get to know us",
+          "subtitle": "and solve your doubts"
+        },
+        "description": "Everything you need to know about us and our service",
+        "logosCarousel": {
+          "text": "More than 70 real estate agencies trust us"
+        },
+        "stats": {
+          "stat1": {
+            "value": "4+",
+            "label": "Years experience"
           },
-          "description": "Everything you need to know about us and our service",
-          "logosCarousel": {
-            "text": "More than 70 real estate agencies trust us"
+          "stat2": {
+            "value": "20+",
+            "label": "Active agencies"
           },
-          "stats": {
-            "stat1": {
-              "value": "4+",
-              "label": "Years experience"
-            },
-            "stat2": {
-              "value": "20+",
-              "label": "Active agencies"
-            },
-            "stat3": {
-              "value": "8k+",
-              "label": "Leads generated"
-            },
-            "stat4": {
-              "value": "94%",
-              "label": "Satisfaction"
-            }
+          "stat3": {
+            "value": "8k+",
+            "label": "Leads generated"
           },
-          "sections": {
-            "section1": {
-              "title": "Our story",
-              "subtitle": "Proven experience"
-            },
-            "section2": {
-              "title": "Frequently asked questions",
-              "subtitle": "Doubts resolved"
-            },
-            "section3": {
-              "title": "Schedule your meeting",
-              "subtitle": "Final step"
-            }
-          },
-          "history": {
+          "stat4": {
+            "value": "94%",
+            "label": "Satisfaction"
+          }
+        },
+        "sections": {
+          "section1": {
             "title": "Our story",
-            "subtitle": "Proven experience",
-            "description": {
-              "part1": "Since 2021 we help real estate agencies to capture property owners interested in selling. We have perfected our system in Spain.",
-              "part2": "We know the sector and understand how much it costs to get a contract. That's why we accompany you throughout the process."
+            "subtitle": "Proven experience"
+          },
+          "section2": {
+            "title": "Frequently asked questions",
+            "subtitle": "Doubts resolved"
+          },
+          "section3": {
+            "title": "Schedule your meeting",
+            "subtitle": "Final step"
+          }
+        },
+        "history": {
+          "title": "Our story",
+          "subtitle": "Proven experience",
+          "description": {
+            "part1": "Since 2021 we help real estate agencies to capture property owners interested in selling. We have perfected our system in Spain.",
+            "part2": "We know the sector and understand how much it costs to get a contract. That's why we accompany you throughout the process."
+          },
+          "timeline": {
+            "event1": "Start in the Spanish market",
+            "event2": "More than 50 agencies trust us",
+            "event3": "System perfected and tested",
+            "event4": "Expansion to Portugal"
+          }
+        },
+        "faq": {
+          "title": "Frequently asked questions",
+          "subtitle": "Doubts resolved",
+          "questions": {
+            "question1": {
+              "question": "Is there a commitment?",
+              "answer": "No, we work month by month. You can cancel whenever you want without penalties."
             },
-            "timeline": {
-              "event1": "Start in the Spanish market",
-              "event2": "More than 50 agencies trust us",
-              "event3": "System perfected and tested",
-              "event4": "Expansion to Portugal"
+            "question2": {
+              "question": "What type of leads do I receive?",
+              "answer": "Property owners with real intention to sell, filtered through our predictive AI system."
+            },
+            "question3": {
+              "question": "When do I start receiving contacts?",
+              "answer": "In less than 7 days after defining your area and setting up personalized campaigns."
+            },
+            "question4": {
+              "question": "What areas are available?",
+              "answer": "We work in the main cities of Spain and Portugal with limited availability."
+            },
+            "question5": {
+              "question": "Does it include support and guidance?",
+              "answer": "Yes, it includes professional contact script, exclusive WhatsApp group and personalized monthly review."
+            }
+          }
+        },
+        "contact": {
+          "title": "Schedule your meeting",
+          "subtitle": "Final step",
+          "description": {
+            "part1": "In",
+            "highlight": "15 minutes",
+            "part2": "we show you how we work and if",
+            "part3": "your area is available."
+          },
+          "benefits": {
+            "benefit1": {
+              "title": "Personalized analysis",
+              "description": "We review your specific area"
+            },
+            "benefit2": {
+              "title": "Live demo",
+              "description": "System working in real time"
+            },
+            "benefit3": {
+              "title": "No commitment",
+              "description": "Just information, no pressure"
             }
           },
-          "faq": {
-            "title": "Frequently asked questions",
-            "subtitle": "Doubts resolved",
-            "questions": {
+          "cta": {
+            "title": "Let's talk!",
+            "subtitle": "Response in less than 2 hours",
+            "features": {
+              "feature1": "100% Free",
+              "feature2": "15 minutes",
+              "feature3": "No commitment"
+            }
+          }
+        },
+        "finalCta": {
+          "title": "Do you have more questions?",
+          "description": "Let's talk and we'll tell you everything you need to know",
+          "button": "Talk to an advisor",
+          "benefits": {
+            "benefit1": "100% Free",
+            "benefit2": "Only 15 minutes",
+            "benefit3": "No commitment"
+          }
+        }
+      }, 
+        "clientesPage": {
+          "badge": "Welcome to the system",
+          "hero": {
+            "title": "You are now part of the system",
+            "subtitle": "Get ready to get quality leads in your area"
+          },
+          "intro": {
+            "text1": "If you have reached this point, it is because you are already part of the system. You were probably looking for an effective way to get contacts from property owners who:",
+            "features": {
+              "feature1": "Are in your area",
+              "feature2": "Are thinking of selling",
+              "feature3": "Only you can contact"
+            },
+            "text2": "If that's what you were looking for, you've made a great decision. And you won't be alone: we are a professional, transparent team and we will be with you throughout the month to help you meet your lead generation goals."
+          },
+          "steps": {
+            "step1": {
+              "title": "Before we start, there are two key questions:",
               "question1": {
-                "question": "Is there a commitment?",
-                "answer": "No, we work month by month. You can cancel whenever you want without penalties."
+                "title": "How do we get leads?",
+                "text1": "We use targeted campaigns on Meta (Facebook + Instagram) and Google Ads to reach people who are considering selling their home. We create ads that generate real interest and take them to forms where we ask for key data: area, type of property, reason for sale...",
+                "text2": "This step allows us to rule out the curious and focus on owners who are willing to talk. It's not a perfect system —like any online lead generation, some unwanted leads can slip through— but it's not common.",
+                "tip": "Furthermore, before launching your campaign, we share a description of the type of ad we will use, so you know what the owner has seen when they call you or you call them. This will help you guide the conversation and not go in blind."
               },
               "question2": {
-                "question": "What type of leads do I receive?",
-                "answer": "Property owners with real intention to sell, filtered through our predictive AI system."
-              },
-              "question3": {
-                "question": "When do I start receiving contacts?",
-                "answer": "In less than 7 days after defining your area and setting up personalized campaigns."
-              },
-              "question4": {
-                "question": "What areas are available?",
-                "answer": "We work in the main cities of Spain and Portugal with limited availability."
-              },
-              "question5": {
-                "question": "Does it include support and guidance?",
-                "answer": "Yes, it includes professional contact script, exclusive WhatsApp group and personalized monthly review."
-              }
-            }
-          },
-          "contact": {
-            "title": "Schedule your meeting",
-            "subtitle": "Final step",
-            "description": {
-              "part1": "In",
-              "highlight": "15 minutes",
-              "part2": "we show you how we work and if",
-              "part3": "your area is available."
-            },
-            "benefits": {
-              "benefit1": {
-                "title": "Personalized analysis",
-                "description": "We review your specific area"
-              },
-              "benefit2": {
-                "title": "Live demo",
-                "description": "System working in real time"
-              },
-              "benefit3": {
-                "title": "No commitment",
-                "description": "Just information, no pressure"
-              }
-            },
-            "cta": {
-              "title": "Let's talk!",
-              "subtitle": "Response in less than 2 hours",
-              "features": {
-                "feature1": "100% Free",
-                "feature2": "15 minutes",
-                "feature3": "No commitment"
-              }
-            }
-          },
-          "finalCta": {
-            "title": "Do you have more questions?",
-            "description": "Let's talk and we'll tell you everything you need to know",
-            "button": "Talk to an advisor",
-            "benefits": {
-              "benefit1": "100% Free",
-              "benefit2": "Only 15 minutes",
-              "benefit3": "No commitment"
-            }
-          }
-        }, 
-          "clientesPage": {
-            "badge": "Welcome to the system",
-            "hero": {
-              "title": "You are now part of the system",
-              "subtitle": "Get ready to get quality leads in your area"
-            },
-            "intro": {
-              "text1": "If you have reached this point, it is because you are already part of the system. You were probably looking for an effective way to get contacts from property owners who:",
-              "features": {
-                "feature1": "Are in your area",
-                "feature2": "Are thinking of selling",
-                "feature3": "Only you can contact"
-              },
-              "text2": "If that's what you were looking for, you've made a great decision. And you won't be alone: we are a professional, transparent team and we will be with you throughout the month to help you meet your lead generation goals."
-            },
-            "steps": {
-              "step1": {
-                "title": "Before we start, there are two key questions:",
-                "question1": {
-                  "title": "How do we get leads?",
-                  "text1": "We use targeted campaigns on Meta (Facebook + Instagram) and Google Ads to reach people who are considering selling their home. We create ads that generate real interest and take them to forms where we ask for key data: area, type of property, reason for sale...",
-                  "text2": "This step allows us to rule out the curious and focus on owners who are willing to talk. It's not a perfect system —like any online lead generation, some unwanted leads can slip through— but it's not common.",
-                  "tip": "Furthermore, before launching your campaign, we share a description of the type of ad we will use, so you know what the owner has seen when they call you or you call them. This will help you guide the conversation and not go in blind."
+                "title": "What results can you expect?",
+                "stats": {
+                  "leads": "40",
+                  "leadsLabel": "Exclusive leads/month",
+                  "conversion": "1/9",
+                  "conversionLabel": "Conversion ratio",
+                  "time": "24-48h",
+                  "timeLabel": "First results"
                 },
-                "question2": {
-                  "title": "What results can you expect?",
-                  "stats": {
-                    "leads": "40",
-                    "leadsLabel": "Exclusive leads/month",
-                    "conversion": "1/9",
-                    "conversionLabel": "Conversion ratio",
-                    "time": "24-48h",
-                    "timeLabel": "First results"
-                  },
-                  "text1": "We guarantee up to 40 exclusive leads per month. On average, 1 out of 9 leads converts to acquisition. Success depends largely on how the first contact is managed, which is why we give you:",
-                  "benefits": {
-                    "benefit1": "A guidance script for calls (adaptable to your style)",
-                    "benefit2": "Access to our team for questions about how to contact each lead",
-                    "benefit3": "Bi-weekly follow-up to fine-tune the campaign based on results"
-                  },
-                  "text2": "Keep in mind that some acquisitions are not closed immediately. There are owners who need to resolve inheritances, documentation or simply time to decide. That's why many times what you work on in month 1 brings you results in month 2 or 3."
-                }
-              },
-              "timeline": {
-                "title": "When do you start seeing leads?",
-                "text": "Normally within 24-48h from campaign launch they start coming in. In some cases it may take a little longer (up to 4-5 days), but it's infrequent. The important thing: the monthly volume is always met."
-              },
-              "summary": {
-                "title": "In summary:",
-                "text": "This is a system that works if you make it work too. We get you the contacts, give you the context and accompany you. You call them, work them, and with consistency, the acquisitions come.",
-                "welcome": "Welcome to Horizzon",
-                "slogan": "Let's go for those assignments"
-              },
-              "step2": {
-                "title": "Schedule meeting via Calendly for onboarding",
-                "cta": {
-                  "title": "Last step to get started!",
-                  "description": "Schedule your onboarding meeting to set up your campaign and start receiving leads in 24-48h.",
-                  "button": "Book my onboarding meeting"
-                }
+                "text1": "We guarantee up to 40 exclusive leads per month. On average, 1 out of 9 leads converts to acquisition. Success depends largely on how the first contact is managed, which is why we give you:",
+                "benefits": {
+                  "benefit1": "A guidance script for calls (adaptable to your style)",
+                  "benefit2": "Access to our team for questions about how to contact each lead",
+                  "benefit3": "Bi-weekly follow-up to fine-tune the campaign based on results"
+                },
+                "text2": "Keep in mind that some acquisitions are not closed immediately. There are owners who need to resolve inheritances, documentation or simply time to decide. That's why many times what you work on in month 1 brings you results in month 2 or 3."
+              }
+            },
+            "timeline": {
+              "title": "When do you start seeing leads?",
+              "text": "Normally within 24-48h from campaign launch they start coming in. In some cases it may take a little longer (up to 4-5 days), but it's infrequent. The important thing: the monthly volume is always met."
+            },
+            "summary": {
+              "title": "In summary:",
+              "text": "This is a system that works if you make it work too. We get you the contacts, give you the context and accompany you. You call them, work them, and with consistency, the acquisitions come.",
+              "welcome": "Welcome to Horizzon",
+              "slogan": "Let's go for those assignments"
+            },
+            "step2": {
+              "title": "Schedule meeting via Calendly for onboarding",
+              "cta": {
+                "title": "Last step to get started!",
+                "description": "Schedule your onboarding meeting to set up your campaign and start receiving leads in 24-48h.",
+                "button": "Book my onboarding meeting"
               }
             }
           }
-      }
-  
+        }
+    }

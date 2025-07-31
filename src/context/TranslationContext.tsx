@@ -98,7 +98,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
   return (
     <TranslationContext.Provider value={value}>
       {isReady ? children : null}
-    </TranslationContext.Provider>
+    </TranslationContext.Provider>  
   );
 };
 
